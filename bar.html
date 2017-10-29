@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="./topjui/plugins/echarts/echarts.min.js"></script>
+</head>
+<style> 
+html,body{height:100%}  
+body{ margin:0} 
+/* 去除设置div 高度100% 浏览器右侧产生滚动条 */ 
+</style> 
+<body>
+    <div id ="main" style="width: 100%;height: 100%;"></div>
+    <script type="text/javascript">
+        var data = [
+            {
+                'time':[1,2,2,1,1,2,4],
+                'time1':[1,2,2,1],
+                'time2':[1,2,2,1,1],
+                'time3':[1,2,2],
+                'time4':[1,2,2],
+                'time5':[1,2,2,1],
+                'time6':[1,2,2],
+                'time7':[1,2,2,1,1,2],
+                'item':{
+                    0:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    1:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    2:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    3:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    4:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    5:[0.5,0.6,0.7,0.8],
+                    6:[0.5,0.6,0.7,0.8,0.5,0.5],
+                    7:[0.5,0.6,0.7,0.8,0.5,0.5,0.6],
+                    8:[0.5,0.6,0.7,0.8,0.5,0.5],
+                    9:[0.5,0.6,0.7,0.8,0.5,0.5],
+                    10:[0.5,0.6,0.7,0.8,0.5,0.5,0.6],
+                    11:[0.5,0.6,0.7,0.8,0.5],
+                    12:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    13:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    14:[0.5,0.6,0.7,0.8,0.5,0.5,0.6,0.7,0.8],
+                    15:[0.5,0.6,0.7,0.8],
+                    16:[0.5,0.6,0.7,0.8,0.5],
+                    17:[0.5,0.6],
+                    18:[0.5,0.6,0.7,0.8],
+                    19:[0.5,0.6,0.7,0.8],
+                    20:[0.5,0.6],
+                    21:[0.5,0.6],
+                    22:[0.5,0.6,0.7,0.8,0.5,0.5,0.6],
+                    23:[0.5,0.6,0.7,0.8,0.5,0.5],
+                    24:[0.5,0.6,0.7,0.8],
+                    25:[0.5,0.6,0.7,0.8,0.5,0.5],
+                    26:[0.5,0.6,0.7],
+                    27:[0.5,0.6,0.7,0.8,0.5]
+                }
+
+            },
+            {
+                'pass':[88,90,99,100,91,77,98],
+                'pass1':[88,90,99,100],
+                'pass2':[88,90,99,100,91],
+                'pass3':[88,90,99],
+                'pass4':[88,90,99],
+                'pass5':[88,90,99,100],
+                'pass6':[88,90,99],
+                'pass7':[88,90,99,100,91,77],
+                'item':{
+                    0:[99,99,99,88,99,88,90,89,87],
+                    1:[99,99,99,88,99,88,90,89,87],
+                    2:[99,99,99,88,99,88,90,89,87],
+                    3:[99,99,99,88,99,88,90,89,87],
+                    4:[99,99,99,88,99,88,90,89,87],
+                    5:[99,99,99,88,99],
+                    6:[99,99,99,88,99,88],
+                    7:[99,99,99,88,99,88,90],
+                    8:[99,99,99,88,99,88],
+                    9:[99,99,99,88,99,88],
+                    10:[99,99,99,88,99,88,90],
+                    11:[99,99,99,88,99],
+                    12:[99,99,99,88,99,88,90,89,87],
+                    13:[99,99,99,88,99,88,90,89,87],
+                    14:[99,99,99,88,99,88,90,89,87],
+                    15:[99,99,99,88],
+                    16:[99,99,99,88,99],
+                    17:[99,99],
+                    18:[99,99,99,88],
+                    19:[99,99,99,88],
+                    20:[99,99],
+                    21:[99,99],
+                    22:[99,99,99,88,99,88,90],
+                    23:[99,99,99,88,99,88],
+                    24:[99,99,99,88],
+                    25:[99,99,99,88,99,88],
+                    26:[99,99,99],
+                    27:[99,99,99,88,99]
+                }
+            }
+        ];
+        var category_procedure = [
+            {'name':'管理费报销','time_value':data[0].time1,'pass_value':data[1].pass1,'type':[
+            {'name':'普通报销申请','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[0],'pass_value':data[1].item[0]},
+            {'name':'差旅费报销申请','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[1],'pass_value':data[1].item[1]},
+            {'name':'招待费报销申请','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[2],'pass_value':data[1].item[2]},
+            {'name':'市内交通费费用报销','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[3],'pass_value':data[1].item[3]}
+            ]},
+            {'name':'借付款管理','time_value':data[0].time2,'pass_value':data[1].pass2,'type':[
+            {'name':'借款申请','nodeList':['借款人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[4],'pass_value':data[1].item[4]},
+            {'name':'发票申请','nodeList':['部门领导','合同管理员','财务审核','财务办理'],'time_value':data[0].item[5],'pass_value':data[1].item[5]},
+            {'name':'一般付款申请','nodeList':['财务审核','主管副总','财务负责人','副董事长','总经理','申请人打印'],'time_value':data[0].item[6],'pass_value':data[1].item[6]},
+            {'name':'项目付款申请','nodeList':['合约管理部负责人','财务审核','主管副总','财务负责人','副董事长','总经理','申请人打印'],'time_value':data[0].item[7],'pass_value':data[1].item[7]},
+            {'name':'公司纳税申请','nodeList':['财务审核','主管副总','财务负责人','副董事长','总经理','申请人打印'],'time_value':data[0].item[8],'pass_value':data[1].item[8]}
+            ]},
+            {'name':'合同管理类','time_value':data[0].time3,'pass_value':data[1].pass3,'type':[
+            {'name':'采购类合同申请','nodeList':['部门经理','法务部门','主管副总','副董事长','总经理','合同管理员'],'time_value':data[0].item[9],'pass_value':data[1].item[9]},
+            {'name':'销售类合同申请','nodeList':['部门经理','法务部门','主管副总','总经理','副董事长','书记','合同管理员'],'time_value':data[0].item[10],'pass_value':data[1].item[10]},
+            {'name':'一般合同申请','nodeList':['部门经理','法务部门','主管副总','总经理','合同管理员'],'time_value':data[0].item[11],'pass_value':data[1].item[11]},
+            ]},
+            {'name':'项目费报销','time_value':data[0].time4,'pass_value':data[1].pass4,'type':[
+            {'name':'项目普通费用报销','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[12],'pass_value':data[1].item[12]},
+            {'name':'项目招待费报销','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[13],'pass_value':data[1].item[13]},
+            {'name':'项目差旅费报销','nodeList':['费用支出人','部门经理','财务审核','主管副总','财务负责人','总经理','副董事长','申请人打印','财务稽核'],'time_value':data[0].item[14],'pass_value':data[1].item[14]},
+            ]},
+            {'name':'行政管理类','time_value':data[0].time5,'pass_value':data[1].pass5,'type':[
+            {'name':'用印申请','nodeList':['部门领导','分管领导','党支部书记','盖章人'],'time_value':data[0].item[15],'pass_value':data[1].item[15]},
+            {'name':'物品申购','nodeList':['部门经理','综合办公部领导','主管副总','副董事长','总经理'],'time_value':data[0].item[16],'pass_value':data[1].item[16]},
+            {'name':'需求申请','nodeList':['需求管理员','需求确认'],'time_value':data[0].item[17],'pass_value':data[1].item[17]},
+            {'name':'证件借用流程','nodeList':['部门领导','分管领导','证件管理员','归还确认'],'time_value':data[0].item[18],'pass_value':data[1].item[18]}
+            ]},
+            {'name':'党工团管理','time_value':data[0].time6,'pass_value':data[1].pass6,'type':[
+            {'name':'党支部经费报销申请','nodeList':['党支部书记','组织委员','申请人打印','支付办结'],'time_value':data[0].item[19],'pass_value':data[1].item[19]},
+            {'name':'工会经费报销申请','nodeList':['工会委员','工会主席'],'time_value':data[0].item[20],'pass_value':data[1].item[20]},
+            {'name':'工会经费支付申请','nodeList':['工会委员','工会主席'],'time_value':data[0].item[21],'pass_value':data[1].item[21]},
+            ]},
+            {'name':'人资管理类','time_value':data[0].time7,'pass_value':data[1].pass7,'type':[
+            {'name':'请假申请','nodeList':['申请人','部门经理','考勤管理员','分管领导','总经理','经办人销假确认','部门经理确认'],'time_value':data[0].item[22],'pass_value':data[1].item[22]},
+            {'name':'加班申请','nodeList':['申请人','部门领导','分管领导','申请人确认','分管领导确认','部门领导确认'],'time_value':data[0].item[23],'pass_value':data[1].item[23]},
+            {'name':'倒休申请','nodeList':['申请人','部门领导','分管领导','总经理'],'time_value':data[0].item[24],'pass_value':data[1].item[24]},
+            {'name':'出差申请','nodeList':['申请人','部门领导','分管领导','副董事长','总经理','申请人确认'],'time_value':data[0].item[25],'pass_value':data[1].item[25]},
+            {'name':'销假申请','nodeList':['申请人','部门领导','分管领导'],'time_value':data[0].item[26],'pass_value':data[1].item[26]},
+            {'name':'因公外出申请','nodeList':['申请人','部门领导','分管领导','总经理','申请人确认'],'time_value':data[0].item[27],'pass_value':data[1].item[27]}
+            ]}
+        ];
+        var option = {
+                color :['#5E87B0','#a595ce','#dda150','#99C5D1','#66DD94','#70AFC4','#DB5E8C','#efcee8','#f3d7b5','#fdffdf','#daf9ca','#c7b3e5'],
+                title: {
+                    top: '0%',
+                    x: 'center',
+                    text: '各类流程总体分析',
+                    textStyle: {
+                      fontSize: 28
+                    },
+                },
+                tooltip: {
+                    textStyle: {
+                      fontSize: 22
+                    },
+                },
+                    toolbox: {
+                    show : true,
+                    orient: 'horizontal',      // 布局方式，默认为水平布局，可选为：
+                                               // 'horizontal' ¦ 'horizontal'
+                    //x: 'right',                // 水平安放位置，默认为全图右对齐，可选为：
+                                               // 'center' ¦ 'left' ¦ 'right'
+                                               // ¦ {number}（x坐标，单位px）
+                    y: 'top',                  // 垂直安放位置，默认为全图顶端，可选为：
+                                               // 'top' ¦ 'bottom' ¦ 'center'
+                                               // ¦ {number}（y坐标，单位px）
+                    right: '20',
+                    color : ['#1e90ff','#22bb22','#4b0082','#d2691e'],
+                    backgroundColor: 'rgba(0,0,0,0)', // 工具箱背景颜色
+                    borderColor: '#ccc',       // 工具箱边框颜色
+                    borderWidth: 0,            // 工具箱边框线宽，单位px，默认为0（无边框）
+                    padding: 5,                // 工具箱内边距，单位px，默认各方向内边距为5，
+                    showTitle: true,
+                    feature : {
+                        show: false,
+                        magicType: {
+                            show : true,
+                            title : {
+                                line : '动态类型切换-折线图',
+                                bar : '动态类型切换-柱形图'
+                            },
+                            type : ['line', 'bar']
+                        },
+                        saveAsImage : {
+                            show : true,
+                            title : '保存为图片',
+                            type : 'jpeg',
+                            lang : ['点击本地保存'] 
+                        },
+                        dataView : {
+                            show : true,
+                            title : '数据视图'
+                        },
+                                    restore : {
+                            show : true,
+                            title : '还原',
+                            color : 'black'
+                        },
+                        myTool: {
+                            show: true,
+                            title: '返回主表',
+                            icon: 'path://M965.963701 486.74685 526.971481 47.839565 89.258395 485.532185c-8.363482 8.383948-8.363482 21.966291 0 30.349215 8.42488 8.385994 21.98778 8.385994 30.349215 0l76.296687-76.252685L195.904297 877.321336c0 30.099529 24.460088 54.580083 54.559617 54.580083l559.219441 0c30.099529 0 54.580083-24.480554 54.580083-54.580083L864.263437 445.791066l71.351048 71.307046c4.15053 4.234441 9.641591 6.246261 15.174608 6.246261 5.449106 0 10.982122-2.012843 15.175631-6.246261C974.347648 508.756119 974.347648 495.131821 965.963701 486.74685M821.337789 877.321336c0 6.415107-5.240351 11.654434-11.655458 11.654434L250.463913 888.97577c-6.415107 0-11.632945-5.239328-11.632945-11.654434L238.830969 396.703067l288.140513-288.204981L821.337789 402.865417 821.337789 877.321336 821.337789 877.321336z',
+                            onclick: function() {
+                                location.reload(true);
+                            }
+                        }
+                    }
+                },
+                grid: {
+                    show: true,//是否显示直角坐标系网格
+                    top: '10%',
+                    bottom: '3%',//grid 组件离容器下侧的距离
+                    //backgroundColor: '#27727B',//直角坐标系背景颜色
+                    containLabel: true//containLabel 为 true 的时候，grid.left  grid.right  grid.top  grid.bottom  grid.width  grid.height 决定的是包括了坐标轴标签在内的所有内容所形成的矩形的位置。
+                },
+                xAxis: [
+                    {   
+                        type:'category',
+                        name:'流程分类',
+                        nameTextStyle: {
+                            fontSize: 16
+                        },
+                        axisLabel:{
+                            interval:0,
+                            textStyle: {
+                                fontSize: 16
+                            }
+                        },
+                        'data':[
+                            '管理费报销','借付款管理','合同管理类','项目费报销','行政管理类','党工团管理','人资管理类'
+                        ],
+                        splitLine: {show: false},
+                        triggerEvent: true
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        name: '流程平均总耗时/天',
+                        max: 10,
+                        interval:1,
+                        nameTextStyle: {
+                            fontSize: 16
+                        }
+                    },
+                    {
+                        type: 'value',
+                        name: '流程通过率/%',
+                        min:0,
+                        max: 100,
+                        interval:10,
+                        nameTextStyle: {
+                            fontSize: 16
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '平均耗时/天', 
+                        type: 'bar',
+                        itemStyle: {
+                            normal: {color: '#efcee8'}
+                        },
+                        data: data[0].time
+                    },
+                    {
+                        name: '通过率(%)', 
+                        type: 'line',
+                        itemStyle: {
+                            normal: {color: '#a595ce'}
+                        },
+                        yAxisIndex: 1,
+                        data: data[1].pass
+                    }
+                ]
+        };
+        var myChart = echarts.init(document.getElementById('main')); 
+        myChart.setOption(option,true);   
+        var currentType = 0;       
+        myChart.on('click', function (params) {
+            if(params.name == undefined)
+            {
+                option.xAxis[0].data = [];
+                for (var i = 0; i < category_procedure.length; i++) {
+                    if (params.value == category_procedure[i].name) {
+                        for (var j = 0; j < category_procedure[i].type.length; j++) {
+                            option.xAxis[0].data.push(category_procedure[i].type[j].name);
+                        }
+                        option.xAxis[0].triggerEvent = false;
+                        break; 
+                    }
+                }
+                currentType = i;
+                option.series[0].data = category_procedure[i].time_value;
+                option.series[1].data = category_procedure[i].pass_value;
+                option.title.text = params.value + '各流程总体分析';
+                myChart.setOption(option,true);
+            }
+            if (params.name != undefined && option.xAxis[0].triggerEvent == false) {          
+                for (var n = 0; n < category_procedure[currentType].type.length; n++) {
+                    if (category_procedure[currentType].type[n].name == params.name) {
+                        option.xAxis[0].data = category_procedure[currentType].type[n].nodeList;
+                        console.log(option.xAxis[0].data);
+                        option.series[0].data = category_procedure[currentType].type[n].time_value;
+                        option.series[1].data = category_procedure[currentType].type[n].pass_value;
+                        option.title.text = params.name + '流程各节点分析';
+                        option.series[0].name = '平均滞留时间/天';
+                        option.series[1].name = '节点通过率/(%)';
+                        option.xAxis[0].name = '流程节点';
+                        option.yAxis[0].name = '节点平均滞留时间/天';
+                        option.yAxis[1].name = '节点通过率';
+                        break;
+                    }
+                }
+                myChart.setOption(option,true);
+            }
+            else {
+                //window.location.reload();
+            }
+        }); 
+        setTimeout(function (){
+            window.onresize = function () {
+                myChart.resize();
+            };
+        },200);
+    </script>
+</body>
+</html>

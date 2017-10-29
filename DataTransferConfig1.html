@@ -1,0 +1,1850 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+
+	<head>
+		<meta http-equiv="content-type" content="text/html; charset=UTF-8">
+		<meta charset="utf-8">
+		<title>数据交换配置</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1, user-scalable=no">
+		<meta name="description" content="">
+		<meta name="author" content="">
+		<!-- STYLESHEETS -->
+		<!--[if lt IE 9]><script src="js/flot/excanvas.min.js"></script><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script><![endif]-->
+		<link rel="stylesheet" type="text/css" href="css/cloud-admin.css">
+		<link rel="stylesheet" type="text/css" href="css/themes/default.css" id="skin-switcher">
+		<link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+		<link href="font-awesome/css/font-awesome.min.css" rel="stylesheet">
+		<!-- JQUERY UI-->
+		<link rel="stylesheet" type="text/css" href="js/jquery-ui-1.10.3.custom/css/custom-theme/jquery-ui-1.10.3.custom.min.css" />
+		<!-- DATE RANGE PICKER -->
+		<link rel="stylesheet" type="text/css" href="js/bootstrap-daterangepicker/daterangepicker-bs3.css" />
+		<!-- DATA TABLES -->
+		<link rel="stylesheet" type="text/css" href="js/datatables/media/css/jquery.dataTables.min.css" />
+		<link rel="stylesheet" type="text/css" href="js/datatables/media/assets/css/datatables.min.css" />
+		<link rel="stylesheet" type="text/css" href="js/datatables/extras/TableTools/media/css/TableTools.min.css" />
+
+		<link rel="stylesheet" type="text/css" href="gooflow/css/GooFlow2.css" />
+
+		<!-- FONTS -->
+		<style type="text/css">
+			body {
+				overflow-x: hidden;
+				overflow-y: hidden;
+			}
+			/*input {
+				border: 1px solid #dddddd;
+				background: #ffffff;
+				color: #333333;
+				margin-top: 2px;
+				margin-bottom: 2px;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+			}
+			
+			label {
+				margin-top: 2px;
+				margin-bottom: 2px;
+			}
+			
+	
+			.mytextarea {
+				border: 1px solid #dddddd;
+				background: #ffffff;
+				color: #333333;
+				border-top-left-radius: 3px;
+				border-top-right-radius: 3px;
+				border-bottom-left-radius: 3px;
+				border-bottom-right-radius: 3px;
+				margin-top: 2px;
+				margin-bottom: 2px;
+			}
+			form{
+				font-size: 100%;
+			}*/
+			
+			.myselect {
+				border: 1px solid #dddddd;
+				background: #ffffff;
+				color: #333333;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+				width: 156px;
+				height: 24px;
+				margin-top: 2px;
+				margin-bottom: 2px;
+			}
+			
+			.myselect2 {
+				border: 1px solid #999999;
+				background: #ffffff;
+				color: #333333;
+				border-top-left-radius: 4px;
+				border-top-right-radius: 4px;
+				border-bottom-left-radius: 4px;
+				border-bottom-right-radius: 4px;
+				width: 130px;
+				height: 24px;
+				margin-top: 6px;
+				margin-left: -5px;
+				margin-bottom: 1px;
+			}
+			
+			#content .page-header {
+				margin-top: 0px;
+				margin-left: 0px;
+				margin-bottom: 30px;
+			}
+			
+			.GooFlow_head label {
+				font-size: 15px;
+				background: #36798A;
+			}
+			
+			.GooFlow_work text {
+				font-size: 15px;
+			}
+			
+			.GooFlow .item_round .span {
+				font-size: 14px;
+			}
+			
+			.GooFlow td {
+				font-size: 14px;
+			}
+		</style>
+	</head>
+
+	<body>
+		<!-- HEADER -->
+		<header class="navbar clearfix" id="header">
+			<div class="container">
+				<div class="navbar-brand">
+					<!-- COMPANY LOGO -->
+					<a href="index.html">
+						<img src="img/logo/logo.png" alt="Cloud Admin Logo" class="img-responsive" height="30" width="120">
+					</a>
+					<!-- /COMPANY LOGO -->
+					<!-- TEAM STATUS FOR MOBILE -->
+					<div class="visible-xs">
+						<a href="#" class="team-status-toggle switcher btn dropdown-toggle">
+							<i class="fa fa-users"></i>
+						</a>
+					</div>
+					<!-- /TEAM STATUS FOR MOBILE -->
+					<!-- SIDEBAR COLLAPSE -->
+					<div id="sidebar-collapse" class="sidebar-collapse btn">
+						<i class="fa fa-bars" data-icon1="fa fa-bars" data-icon2="fa fa-bars"></i>
+					</div>
+					<!-- /SIDEBAR COLLAPSE -->
+				</div>
+				<!-- NAVBAR LEFT -->
+				<ul class="nav navbar-nav pull-left hidden-xs" id="navbar-left">
+					<li class="dropdown">
+						<a href="#" class="team-status-toggle dropdown-toggle tip-bottom" data-toggle="tooltip" title="获取服务器状态">
+							<i class="fa fa-archive fa-fw"></i>
+							<span class="name">服务器状态</span>
+							<i class="fa fa-angle-down"></i>
+						</a>
+					</li>
+					<li class="dropdown">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-cog"></i>
+							<span class="name">皮肤</span>
+							<i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu skins">
+							<li class="dropdown-title">
+								<span><i class="fa fa-leaf"></i>主题皮肤</span>
+							</li>
+							<li>
+								<a href="#" data-skin="default">默认</a>
+							</li>
+							<li>
+								<a href="#" data-skin="night">暗影</a>
+							</li>
+							<li>
+								<a href="#" data-skin="earth">大地</a>
+							</li>
+							<li>
+								<a href="#" data-skin="utopia">乌托邦</a>
+							</li>
+							<li>
+								<a href="#" data-skin="nature">自然</a>
+							</li>
+							<li>
+								<a href="#" data-skin="graphite">石墨</a>
+							</li>
+						</ul>
+					</li>
+				</ul>
+				<!-- /NAVBAR LEFT -->
+				<!-- BEGIN TOP NAVIGATION MENU -->
+				<ul class="nav navbar-nav pull-right">
+					<!-- BEGIN NOTIFICATION DROPDOWN -->
+					<li class="dropdown" id="header-notification">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-bell"></i>
+							<span class="badge">7</span>
+						</a>
+						<ul class="dropdown-menu notification">
+							<li class="dropdown-title">
+								<span><i class="fa fa-bell"></i>您当前有4份通知</span>
+							</li>
+							<li>
+								<a href="#">
+									<span class="label label-success"><i class="fa fa-user"></i></span>
+									<span class="body">
+                                        <span class="message">当前3位用户在线 </span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>刚刚</span>
+									</span>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="label label-primary"><i class="fa fa-comment"></i></span>
+									<span class="body">
+                                        <span class="message">赵广提交ETL任务</span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>19分钟前</span>
+									</span>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="label label-warning"><i class="fa fa-lock"></i></span>
+									<span class="body">
+                                        <span class="message">DW1 服务器锁定</span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>32分钟前</span>
+									</span>
+									</span>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="label label-warning"><i class="fa fa-exclamation-triangle"></i></span>
+									<span class="body">
+                                        <span class="message">Oracle11g 连接超时</span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>6 小时前</span>
+									</span>
+									</span>
+								</a>
+							</li>
+							<li class="footer">
+								<a href="#">详情 <i class="fa fa-arrow-circle-right"></i></a>
+							</li>
+						</ul>
+					</li>
+					<!-- END NOTIFICATION DROPDOWN -->
+					<!-- BEGIN INBOX DROPDOWN -->
+					<li class="dropdown" id="header-message">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-envelope"></i>
+							<span class="badge">3</span>
+						</a>
+						<ul class="dropdown-menu inbox">
+							<li class="dropdown-title">
+								<span><i class="fa fa-envelope-o"></i>您有3条未读信息</span>
+								<span class="compose pull-right tip-right" title="编辑信息"><i class="fa fa-pencil-square-o"></i></span>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/avatars/1.jpg" alt="" />
+									<span class="body">
+                                        <span class="from">刘丹</span>
+									<span class="message">
+                                        </span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>刚刚</span>
+									</span>
+									</span>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/avatars/dengyuqiao.jpg" alt="" />
+									<span class="body">
+                                        <span class="from">邓钰桥</span>
+									<span class="message">
+                                        </span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>15分钟前</span>
+									</span>
+									</span>
+
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<img src="img/avatars/guochangqing.jpg" alt="" />
+									<span class="body">
+                                        <span class="from">郭长青</span>
+									<span class="message">
+                                        </span>
+									<span class="time">
+                                            <i class="fa fa-clock-o"></i>
+                                            <span>2小时前</span>
+									</span>
+									</span>
+
+								</a>
+							</li>
+							<li class="footer">
+								<a href="#">查看消息详情 <i class="fa fa-arrow-circle-right"></i></a>
+							</li>
+						</ul>
+					</li>
+					<!-- END INBOX DROPDOWN -->
+					<!-- BEGIN TODO DROPDOWN -->
+					<li class="dropdown" id="header-tasks">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<i class="fa fa-tasks"></i>
+							<span class="badge">3</span>
+						</a>
+						<ul class="dropdown-menu tasks">
+							<li class="dropdown-title">
+								<span><i class="fa fa-check"></i> 6份任务进程中</span>
+							</li>
+							<li>
+								<a href="#">
+									<span class="header clearfix">
+                                        <span class="pull-left">数据库日常更新</span>
+									<span class="pull-right">60%</span>
+									</span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+											<span class="sr-only">60% Complete</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="header clearfix">
+                                        <span class="pull-left">账户安全系统升级中</span>
+									<span class="pull-right">25%</span>
+									</span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="25" aria-valuemin="0" aria-valuemax="100" style="width: 25%;">
+											<span class="sr-only">25% Complete</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="header clearfix">
+                                        <span class="pull-left">数据抽取任务12</span>
+									<span class="pull-right">40%</span>
+									</span>
+									<div class="progress progress-striped">
+										<div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
+											<span class="sr-only">40% Complete</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="header clearfix">
+                                        <span class="pull-left">数据抽取任务13</span>
+									<span class="pull-right">70%</span>
+									</span>
+									<div class="progress progress-striped active">
+										<div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="70" aria-valuemin="0" aria-valuemax="100" style="width: 70%;">
+											<span class="sr-only">70% Complete</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li>
+								<a href="#">
+									<span class="header clearfix">
+                                        <span class="pull-left">调度计划7</span>
+									<span class="pull-right">65%</span>
+									</span>
+									<div class="progress">
+										<div class="progress-bar progress-bar-success" style="width: 35%">
+											<span class="sr-only">35% Complete (success)</span>
+										</div>
+										<div class="progress-bar progress-bar-warning" style="width: 20%">
+											<span class="sr-only">20% Complete (warning)</span>
+										</div>
+										<div class="progress-bar progress-bar-danger" style="width: 10%">
+											<span class="sr-only">10% Complete (danger)</span>
+										</div>
+									</div>
+								</a>
+							</li>
+							<li class="footer">
+								<a href="#">查看所有任务<i class="fa fa-arrow-circle-right"></i></a>
+							</li>
+						</ul>
+					</li>
+					<!-- END TODO DROPDOWN -->
+					<!-- BEGIN USER LOGIN DROPDOWN -->
+					<li class="dropdown user" id="header-user">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							<img alt="" src="img/avatars/zhangwei.jpg" />
+							<span class="username">张伟</span>
+							<i class="fa fa-angle-down"></i>
+						</a>
+						<ul class="dropdown-menu">
+							<li>
+								<a href="#"><i class="fa fa-user"></i>头像设置</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-cog"></i> 账户设置</a>
+							</li>
+							<li>
+								<a href="#"><i class="fa fa-eye"></i> 隐私设置</a>
+							</li>
+							<li>
+								<a href="login.html"><i class="fa fa-power-off"></i> 登出</a>
+							</li>
+						</ul>
+					</li>
+					<!-- END USER LOGIN DROPDOWN -->
+				</ul>
+				<!-- END TOP NAVIGATION MENU -->
+			</div>
+			<!-- TEAM STATUS -->
+			<div class="container team-status" id="team-status">
+				<div id="scrollbar">
+					<div class="handle">
+					</div>
+				</div>
+				<div id="teamslider">
+					<ul class="team-list">
+						<li class="current">
+							<a href="javascript:void(0);">
+								<span class="image">
+                      <img src="img/avatars/zhangwei.jpg" alt="" />
+                  </span>
+								<span class="title">
+                    你
+                  </span>
+								<div class="progress">
+									<div class="progress-bar progress-bar-success" style="width: 35%">
+										<span class="sr-only">35% Complete (success)</span>
+									</div>
+									<div class="progress-bar progress-bar-warning" style="width: 20%">
+										<span class="sr-only">20% Complete (warning)</span>
+									</div>
+									<div class="progress-bar progress-bar-danger" style="width: 10%">
+										<span class="sr-only">10% Complete (danger)</span>
+									</div>
+								</div>
+								<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">6</span>已完成
+								<span class="pull-right fa fa-check"></span>
+				</div>
+				<div class="field">
+					<span class="badge badge-orange">3</span>进程中
+					<span class="pull-right fa fa-adjust"></span>
+				</div>
+				<div class="field">
+					<span class="badge badge-red">1</span> 待定
+					<span class="pull-right fa fa-list-ul"></span>
+				</div>
+				</span>
+				</a>
+				</li>
+				<li>
+					<a href="javascript:void(0);">
+						<span class="image">
+                      <img src="img/avatars/xinghui.jpg" alt="" />
+                  </span>
+						<span class="title">
+                    邢辉
+                  </span>
+						<div class="progress">
+							<div class="progress-bar progress-bar-success" style="width: 15%">
+								<span class="sr-only">35% Complete (success)</span>
+							</div>
+							<div class="progress-bar progress-bar-warning" style="width: 40%">
+								<span class="sr-only">20% Complete (warning)</span>
+							</div>
+							<div class="progress-bar progress-bar-danger" style="width: 20%">
+								<span class="sr-only">10% Complete (danger)</span>
+							</div>
+						</div>
+						<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">2</span> 已完成
+						<span class="pull-right fa fa-check"></span>
+			</div>
+			<div class="field">
+				<span class="badge badge-orange">8</span> 进程中
+				<span class="pull-right fa fa-adjust"></span>
+			</div>
+			<div class="field">
+				<span class="badge badge-red">4</span> 待定
+				<span class="pull-right fa fa-list-ul"></span>
+			</div>
+			</span>
+			</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/zhangjinhai.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    张金海
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 65%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 10%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 15%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">10</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">3</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">4</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/zhaoguang.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    赵广
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 5%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 48%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 27%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">1</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">6</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">2</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/dengyuqiao.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    邓钰桥
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 21%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 20%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 40%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">4</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">5</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">9</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/guochangqing.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    郭长青
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 45%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 21%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 10%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">6</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">3</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">1</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/wangqianwei.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    王前炜
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 7%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 30%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 10%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">1</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">6</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">2</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			<li>
+				<a href="javascript:void(0);">
+					<span class="image">
+                      <img src="img/avatars/avatar8.jpg" alt="" />
+                  </span>
+					<span class="title">
+                    邢辉
+                  </span>
+					<div class="progress">
+						<div class="progress-bar progress-bar-success" style="width: 70%">
+							<span class="sr-only">35% Complete (success)</span>
+						</div>
+						<div class="progress-bar progress-bar-warning" style="width: 20%">
+							<span class="sr-only">20% Complete (warning)</span>
+						</div>
+						<div class="progress-bar progress-bar-danger" style="width: 5%">
+							<span class="sr-only">10% Complete (danger)</span>
+						</div>
+					</div>
+					<span class="status">
+                        <div class="field">
+                            <span class="badge badge-green">13</span> 已完成
+					<span class="pull-right fa fa-check"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-orange">7</span> 进程中
+						<span class="pull-right fa fa-adjust"></span>
+					</div>
+					<div class="field">
+						<span class="badge badge-red">1</span> 待定
+						<span class="pull-right fa fa-list-ul"></span>
+					</div>
+					</span>
+				</a>
+			</li>
+			</ul>
+			</div>
+			</div>
+			<!-- /TEAM STATUS -->
+		</header>
+		<!--/HEADER -->
+		<!-- PAGE -->
+		<section id="page">
+			<!-- SIDEBAR -->
+			<div id="sidebar" class="sidebar" style="height: 973px;">
+				<div class="sidebar-menu nav-collapse">
+					<div class="divide-20"></div>
+					<!-- SEARCH BAR -->
+					<div id="search-bar">
+						<input class="search" type="text" placeholder="搜索"><i class="fa fa-search search-icon"></i>
+					</div>
+					<!-- /SEARCH BAR -->
+
+					<!-- SIDEBAR QUICK-LAUNCH -->
+					<!-- <div id="quicklaunch">
+                        <!-- /SIDEBAR QUICK-LAUNCH -->
+
+					<!-- SIDEBAR MENU -->
+					<ul>
+						<li class="">
+							<a href="index.html">
+								<i class="fa fa-tachometer fa-fw"></i> <span class="menu-text">主页</span>
+								<span class="selected"></span>
+							</a>
+						</li>
+						<li class="has-sub active">
+							<a href="DataResourceManagementPlatform.html" class="">
+								<i class="fa fa-certificate fa-fw"></i> <span class="menu-text">数据资源管理平台</span>
+								<span class="arrow"></span>
+							</a>
+							<ul class="sub active ">
+								<li class="has-sub-sub">
+									<a href="javascript:;" class=""><span class="sub-menu-text">数据监控管理系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub active">
+										<li class="current">
+											<a class="" href="DataTransferConfig.html"><span class="sub-menu-text">数据交换配置</span></a>
+										</li>
+										<li>
+											<a class="" href="DataTransferMonitor.html"><span class="sub-menu-text">数据交换监控管理</span></a>
+										</li>
+										<li>
+											<a class="" href="DataAuditManagement.html"><span class="sub-menu-text">数据审计管理</span></a>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a class="" href="DataQualityControl.html"><span class="sub-menu-text">数据质量管控系统</span></a>
+								</li>
+								<li>
+									<a class="" href="DataQualityControl.html"><span class="sub-menu-text">数据资源共享交换系统</span></a>
+								</li>
+
+							</ul>
+						</li>
+						<li class="has-sub">
+							<a href="GISOperation.html" class="">
+								<i class="fa fa-table fa-fw"></i> <span class="menu-text">GIS分析展示平台</span>
+							</a>
+						</li>
+						<li class="has-sub">
+							<a href="analytical_decision.html" class="">
+								<i class="fa fa-bookmark-o fa-fw"></i> <span class="menu-text">综合分析辅助决策平台</span>
+								<span class="arrow"></span>
+							</a>
+							<ul class="sub">
+								<li class="has-sub-sub">
+									<a href="javascript:;" class=""><span class="sub-menu-text">公路建设分析系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub">
+										<li>
+											<a class="" href="investment-time.html"><span class="sub-sub-menu-text">时间维度分析</span></a>
+										</li>
+										<li>
+											<a class="" href="investment-space.html"><span class="sub-sub-menu-text">空间维度分析</span></a>
+										</li>
+									</ul>
+								</li>
+								<li class="has-sub-sub">
+									<a href="javascript:;" class=""><span class="sub-menu-text">公路养护分析系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub">
+										<li>
+											<a class="" href="fjyh_time_dimension.html"><span class="sub-sub-menu-text">时间维度分析</span></a>
+										</li>
+										<li>
+											<a class="" href="fjyh_space_dimension.html"><span class="sub-sub-menu-text">空间维度分析</span></a>
+										</li>
+									</ul>
+								</li>
+								<li class="has-sub-sub">
+									<a href="javascript:;" class=""><span class="sub-menu-text">路政管理分析系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub">
+										<li class="has-sub-sub">
+											<a href="javascript:;" class=""><span class="sub-menu-text">路政许可</span>
+												<span class="arrow"></span>
+											</a>
+											<ul class="sub-sub">
+												<li>
+													<a class="" href="permission_time.html"><span class="sub-sub-menu-text">时间维度分析</span></a>
+												</li>
+												<li>
+													<a class="" href="permission_area.html"><span class="sub-sub-menu-text">空间维度分析</span></a>
+												</li>
+											</ul>
+										</li>
+										<li>
+											<a class="" href="compensation.html"><span class="sub-sub-menu-text">路损赔偿</span></a>
+										</li>
+										<li class="has-sub-sub">
+											<a href="javascript:;" class=""><span class="sub-menu-text">函告案件</span>
+												<span class="arrow"></span>
+											</a>
+											<ul class="sub-sub">
+												<li>
+													<a class="" href="case_time.html"><span class="sub-sub-menu-text">时间维度分析</span></a>
+												</li>
+												<li>
+													<a class="" href="case_area.html"><span class="sub-sub-menu-text">空间维度分析</span></a>
+												</li>
+											</ul>
+										</li>
+									</ul>
+								</li>
+								<li>
+									<a class="" href="toll_fees.html"><span class="sub-menu-text">通行费分析系统</span></a>
+								</li>
+								<li class="has-sub-sub">
+									<a href="javascript:" class=""><span class="sub-menu-text">应急管理分析系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub">
+										<li>
+											<a class="" href="emergencyManagement.html"><span class="sub-sub-menu-text">统计展示</span></a>
+										</li>
+										<li>
+											<a class="" href="emergencyManagement_GIS.html"><span class="sub-sub-menu-text">GIS地图展示</span></a>
+										</li>
+									</ul>
+								</li>
+								<li class="has-sub-sub">
+									<a href="javascript:" class=""><span class="sub-menu-text">路网运行分析系统</span>
+										<span class="arrow"></span>
+									</a>
+									<ul class="sub-sub">
+										<li>
+											<a class="" href="road_run.html"><span class="sub-sub-menu-text">运行情况</span></a>
+										</li>
+										<li>
+											<a class="" href="road_report.html"><span class="sub-sub-menu-text">接报情况</span></a>
+										</li>
+										<li>
+											<a class="" href="road_call.html"><span class="sub-sub-menu-text">话务量分布</span></a>
+										</li>
+										<li>
+											<a class="" href="Record_Message.html"><span class="sub-sub-menu-text">平台录入信息来源分布</span></a>
+										</li>
+										<li>
+											<a class="" href="Recive_events.html"><span class="sub-sub-menu-text">接报事件通行影响分布</span></a>
+										</li>
+										<li>
+											<a class="" href="Recive_events_cause.html"><span class="sub-sub-menu-text">接报事件原因分布</span></a>
+										</li>
+										<li>
+											<a class="" href="Receive_Message_Time.html"><span class="sub-sub-menu-text">接报信息时间分布</span></a>
+										</li>
+									</ul>
+								</li>
+							</ul>
+						</li>
+						<li class="has-sub">
+							<a href="javascript:;" class="">
+								<i class="fa fa-table fa-fw"></i> <span class="menu-text">用户管理平台</span>
+								<span class="arrow"></span>
+							</a>
+							<ul class="sub">
+								<li>
+									<a class="" href="UserRoleManagement.html"><span class="sub-menu-text">用户信息管理</span></a>
+								</li>
+								<li>
+									<a class="" href="UserRoleManagement.html"><span class="sub-menu-text">用户角色管理</span></a>
+								</li>
+								<li>
+									<a class="" href="UserRightManagement.html"><span class="sub-menu-text">用户权限管理</span></a>
+								</li>
+								<li>
+									<a class="" href="AdministratorList.html"><span class="sub-menu-text">管理员列表</span></a>
+								</li>
+							</ul>
+						</li>
+						<li class="has-sub">
+
+						</li>
+					</ul>
+					<!-- /SIDEBAR MENU -->
+				</div>
+			</div>
+			<!-- /SIDEBAR -->
+			<div id="main-content" style="background:lightgray;">
+				<div class="container">
+					<div class="row">
+						<div id="content" class="col-lg-12">
+							<!-- PAGE HEADER-->
+							<div class="row">
+								<div class="page-header">
+									<!-- STYLER -->
+
+									<!-- /STYLER -->
+									<!-- BREADCRUMBS -->
+									<ul class="breadcrumb">
+										<li>
+											<i class="fa fa-home"></i>
+											<a href="index.html">主页</a>
+										</li>
+										<li>数据监控管理系统 - 数据交换配置</li>
+									</ul>
+									<!-- /BREADCRUMBS -->
+									<div class="clearfix">
+										<h3 class="content-title pull-left">数据交换配置</h3>
+										<!--<a class="Operation" onclick="backFun()">返回<img class="img_s" src="gooflow/img/back.png" width="15" height="15" alt="">  </a>-->
+										<!--<button class="btn btn-info" style="margin-top: 4px;margin-left: 5px;background:#00B4E1;" onclick="BackToListPage()"><i class="fa fa-backward"></i>返回</button><button class="btn btn-success" style="margin-left: 5px;margin-top: 4px;" id="ExecWorkFlowBtn"><i class="fa fa-exchange"></i>执行作业</button>-->
+									</div>
+								</div>
+							</div>
+							<!-- /PAGE HEADER -->
+							<div class="row">
+								<div id="container" style="margin-top:-30px;float:left;background: url(bootstrap-dist/fonts/glyphicons-halflings-regular.svg);">
+								</div>
+							</div>
+							<div class="myForm" style="display: none;" title="节点属性设置" id="propertyForm">
+								<div class="form_title">属性设置</div>
+								<div class="form_content">
+									<table>
+										<tr>
+											<td class="th">Id：</td>
+											<td><input type="text" style="width:120px" id="ele_id" /></td>
+										</tr>
+										<tr>
+											<td class="th">Name：</td>
+											<td><input type="text" style="width:120px" id="ele_name" /></td>
+										</tr>
+										<tr>
+											<td class="th">Type：</td>
+											<td><input type="text" style="width:120px" id="ele_type" /></td>
+										</tr>
+										<tr>
+											<td class="th">Model：</td>
+											<td><input type="text" style="width:120px" id="ele_model" /></td>
+										</tr>
+										<tr>
+											<td class="th">Left-r：</td>
+											<td><input type="text" style="width:120px" id="ele_left" /></td>
+										</tr>
+										<tr>
+											<td class="th">Top-r：</td>
+											<td><input type="text" style="width:120px" id="ele_top" /></td>
+										</tr>
+										<tr>
+											<td class="th">Width：</td>
+											<td><input type="text" style="width:120px" id="ele_width" /></td>
+										</tr>
+										<tr>
+											<td class="th">Height：</td>
+											<td><input type="text" style="width:120px" id="ele_height" /></td>
+										</tr>
+										<tr>
+											<td class="th">From：</td>
+											<td><input type="text" style="width:120px" id="ele_from" /></td>
+										</tr>
+										<tr>
+											<td class="th">To：</td>
+											<td><input type="text" style="width:120px" id="ele_to" /></td>
+										</tr>
+									</table>
+								</div>
+								<div class="form_btn_div">
+									<input type="reset" value="重置" />
+									<input type="button" value="确定" onclick="alert(demo.$focus)" />
+								</div>
+							</div>
+							<div id="sqlDiag" title="编辑SQL任务" dialog_type="sql" style="display: none;">
+								<form>
+									<fieldset>
+										<ul>
+											<li>
+												<a href="#editSQLTabs-1">基本信息</a>
+											</li>
+											<li>
+												<a href="#editSQLTabs-2">脚本编辑</a>
+											</li>
+										</ul>
+
+										<div id="editSQLTabs-1">
+											<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+											<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+											<label>所属目录：</label><input type="text" value="作业流程/samples" name="taskDir"><br/>
+											<label>作业描述：</label><textarea id="sqlDes" name="taskDes"></textarea>
+										</div>
+										<div id="editSQLTabs-2">
+											<label>数据连接：</label>
+											<select id="sqlDbSelect" name="dataBaseCon" class="myselect">
+												<option></option>
+												<option>mysql</option>
+												<option>oracle</option>
+											</select><br/>
+											<label>执行方式：</label>
+											<select id="sqlExecType" name="execType" class="myselect">
+												<option></option>
+												<option>执行单一SQL</option>
+												<option>批量执行SQL</option>
+											</select><br/>
+											<label>执行脚本：</label><textarea id="sqlExecJs" name="execJS" class="mytextarea"></textarea>
+										</div>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" style="margin-left: 160px;" type="button" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="variableSetDiag" title="变量设置" dialog_type="variableSet" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<form>
+									<fieldset>
+										<ul>
+											<li>
+												<a href="#varSetTabs-1">基本信息</a>
+											</li>
+											<li>
+												<a href="#varSetTabs-2">变量定义</a>
+											</li>
+										</ul>
+
+										<div id="varSetTabs-1">
+											<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+											<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+											<label>所属目录：</label><input name="taskDir" value="作业流程/samples" type="text"><br/>
+											<label>作业描述：</label><textarea class="mytextarea" name="taskDes"></textarea>
+										</div>
+										<div id="varSetTabs-2">
+											<label>变量名称：</label><input type="text" value="Variable" name="variableName" /><br/>
+											<label>数据连接：</label>
+											<select class="myselect" name="dbCon">
+												<option>mysql</option>
+												<option>oracle</option>
+											</select><br/>
+											<label>赋值语句：</label><textarea style="width: 223px;height: 96px;" name="assignSQL" class="mytextarea">select count(*) from areaTest AS Variable</textarea>
+										</div>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" style="margin-left: 160px;" type="button" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="exportTextDiag" title="文本导出任务" dialog_type="exportText" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<ul>
+									<li>
+										<a href="#exportTextTab-1">基本信息</a>
+									</li>
+									<li>
+										<a href="#exportTextTab-2">导出设置</a>
+									</li>
+								</ul>
+								<form>
+									<fieldset>
+										<div id="exportTextTab-1">
+											<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+											<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+											<label>所属目录：</label><input name="taskDir" value="作业流程/samples" type="text"><br/>
+											<label>作业描述：</label><textarea name="taskDes"></textarea>
+										</div>
+										<div id="exportTextTab-2">
+											<label>数据连接：</label>
+											<select class="myselect" name="dbCon" style="">
+												<option>mysql</option>
+												<option>mysql</option>
+												<option>oracle</option>
+											</select><br/>
+											<label>查询语句:&#12288</label><br/>
+											<textarea style="width: 273px;height: 62px;" class="mytextarea" name="sqlStatement">select * from dstTable</textarea>
+											<br/>
+											<label>文件名：&#12288&#12288&#12288&#12288&#12288</label><input type="text" value="dstTable表格" name="fileName" /><br/>
+											<label>导出路径：&#12288&#12288&#12288&#12288</label><input type="text" name="filePath" value="D:\" /><br/>
+											<label>导出文件类型：</label>
+											<select class="myselect" name="fileType" style="margin-left: 15px;">
+												<option>xls</option>
+												<option>csv</option>
+												<option>txt</option>
+												<option>xlsx</option>
+											</select><br/>
+											<label>格式：&#12288&#12288&#12288&#12288&#12288</label>
+											<select class="myselect" name="format">
+												<option>CR+LF terminated(Windows,DOS)</option>
+												<option>LF terminated(Unix)</option>
+												<option>LF terminated(Unix)</option>
+												<option>CR terminated</option>
+												<option>NO new-line terminator</option>
+											</select><br/>
+											<label>编码：&#12288&#12288&#12288&#12288&#12288</label>
+											<select class="myselect" name="decode">
+												<option>ASCII</option>
+												<option>GB2312</option>
+												<option>GBK</option>
+												<option>UNICODE</option>
+												<option>UTF-8</option>
+											</select>
+										</div>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 200px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="waitDiag" title="等待完成" dialog_type="wait" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<form>
+									<fieldset>
+										<label>节点名称：&#12288&#12288&#12288</label><input name="waitNodeName" placeholder="等待" type="text"><br/>
+										<label><input type="radio" name="wait" value="waitForAnyone">等待之前任一节点完成</label><br/>
+										<label><input type="radio" name="wait" value="waitForAll">等待之前所有节点完成</label><br/>
+										<label><input type="radio" name="waitFortime">等待一定时间：</label><input type="number" name="waitTime" /><label>s</label>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 150px;margin-top: 10px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" style="margin-top: 10px;" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="conditionJudgeDiag" title="条件组件编辑" dialog_type="conditionJudge" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<form>
+									<fieldset>
+										<label>节点名称：</label><input type="text" name="variableNodeName" />
+										<h4 style="margin-top: 10px;margin-bottom:5px;border-bottom: 2px solid;"><strong>变量设置</strong></h4>
+										<label>变量名：&#12288&nbsp;</label><input type="text" value="Variable" name="variableName" /><br/>
+										<label>变量类型：</label>
+										<select class="myselect" name="variableType">
+											<option>Number</option>
+											<option>String</option>
+											<option>Boolean</option>
+											<option>DateTime</option>
+										</select><br/>
+										<label>成功条件：</label>
+										<select class="myselect" name="advantage">
+											<option>大于</option>
+											<option>等于</option>
+											<option>小于</option>
+											<option>小于等于</option>
+											<option>大于等于</option>
+											<option>不等于</option>
+											<option>为空</option>
+										</select><br/>
+										<label>值：&#12288&#12288&#12288&nbsp;</label><input type="text" value="0" name="value" />
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 150px;margin-top: 5px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" style="margin-top: 5px;" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="existedWorkDiag" name="existedWorkDiag" title="已有作业流程" dialog_type="existedWork" style="width: 500px;height: 200px; background:whitesmoke; display: none;">
+								<form>
+									<fieldset>
+										<label>节点名称：</label><input name="existedWorkName" type="text"><br/>
+										<label>作业流程：</label>
+										<select name="workFolw" class="myselect">
+											<option>testWorkFlow1</option>
+											<option>testWorkFlow2</option>
+											<option>testWorkFlow3</option>
+											<option>testWorkFlow4</option>
+											<option>testWorkFlow5</option>
+										</select><br/>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 120px;margin-top: 10px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" style="margin-top: 10px;" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="dataExtraDiag" title="数据抽取任务" dialog_type="dataExtra" style="width: 600px;height: 500px; background:whitesmoke; display: none;">
+								<ul>
+									<li>
+										<a href="#dataExtra_1">基本信息</a>
+									</li>
+									<li>
+										<a href="#dataExtra_2">脚本编辑</a>
+									</li>
+									<li>
+										<a href="#dataExtra_3">SQL语句</a>
+									</li>
+								</ul>
+								<form>
+									<fieldset>
+										<div id="dataExtra_1">
+											<label>作业编号：</label><input name="taskId" type="text" value="kj013" /><br/>
+											<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换" /><br/>
+											<label>所属目录：</label><input name="taskDir" type="text" value="作业流程/samples" /><br/>
+											<label>作业描述：</label><textarea name="taskDes" class="mytextarea"></textarea>
+										</div>
+										<div id="dataExtra_2">
+											<label>源数据连接：&#12288</label>
+											<select class="myselect" name="srcDBCon">
+												<option>技术部mysql数据库</option>
+												<option>database_0</option>
+												<option>oracle</option>
+											</select><br/>
+											<label>源表：&#12288&#12288&#12288&#12288</label>
+											<select class="myselect" name="srcTable">
+												<option>areaTest</option>
+												<option>newTable</option>
+											</select><br/>
+											<label>目标数据连接：</label>
+											<select class="myselect" name="dstDBCon">
+												<option>开发部oracle数据库</option>
+												<option>database_0</option>
+												<option>oracle</option>
+											</select><br/>
+											<label>目标表：&#12288&#12288&#12288</label>
+											<select class="myselect" name="dstTable">
+												<option>dstTable</option>
+												<option>table1</option>
+											</select><br/>
+											<label>每批提交行数：&nbsp;</label><input type="number" value="1000" name="batchRowCount" />
+										</div>
+										<div id="dataExtra_3">
+											<label>目标写入前操作:</label>
+											<select class="myselect" name="srcControl">
+												<option value="noDelete">不删除任何数据</option>
+												<option value="delete">删除已有数据</option>
+												<option value="clearAll">清空目标表数据</option>
+												<option value="deleteThisBatch">删除本批次数据</option>
+											</select><br/>
+											<label>关键批次/字段:&nbsp</label>
+											<select class="myselect" name="keyField">
+												<option value="ID">ID</option>
+												<option value="Name">Name</option>
+												<option value="DATEID">DATEID</option>
+											</select><br/>
+											<label>目标表删除语句：</label><textarea style="width: 330px;height: 75px;" type="text" name="dstSQL">delete  from dstTable</textarea><br/>
+											<label>源表查询语句：</label><button class="btn btn-xs btn-primary" style="float: right;" name="isPreview">查询预览</button>
+											<textarea style="width: 330px;height: 75px;" name="srcSQL" type="text">select * from areaTest </textarea><br/>
+										</div>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 240px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="mailDiag" title="发送邮件编辑" dialog_type="mail" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<ul>
+									<li>
+										<a href="#mailEditTab-1">基本信息</a>
+									</li>
+									<li>
+										<a href="#mailEditTab-2">邮件地址</a>
+									</li>
+									<li>
+										<a href="#mailEditTab-3">邮件内容</a>
+									</li>
+								</ul>
+
+								<div id="mailEditTab-1">
+									<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+									<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+									<label>所属目录：</label><input name="taskDir" value="作业流程/samples" type="text"><br/>
+									<label>作业描述：</label><textarea name="taskDes" class="mytextarea"></textarea>
+								</div>
+								<div id="mailEditTab-2">
+									<h4 style="border-bottom: 2px solid;"><strong>收件人信息</strong></h4>
+									<label>收件人地址：&#12288</label><input type="text" name="toAddress" /><br/>
+									<label>抄送：&#12288&#12288&#12288&#12288</label><input type="text" name="copyToAddress"><br/>
+									<br/>
+									<h4 style="border-bottom: 2px solid;"><strong>发件人信息</strong></h4>
+									<label>发件人地址：&#12288</label><input type="text" name="fromAddress" /><br/>
+									<label>STMP服务器：</label><input type="text" name="serverAddress"><br/>
+									<label>服务器端口号：</label><input type="text" name="serverPort"><br/>
+									<label>用户名：&#12288&#12288&#12288</label><input type="text" name="user"><br/>
+									<label>密码：&#12288&#12288&#12288&#12288</label><input type="text" name="passWd"><br/>
+									<label>安全连接类型：</label>
+									<select class="myselect" name="conType">
+										<option>SSL</option>
+									</select>
+								</div>
+								<div id="mailEditTab-3">
+									<label>使用HTML邮件格式：</label><input name="isHTMLType" type="radio"><br/>
+									<label>编码：&#12288&#12288&#12288&#12288</label>
+									<select class="myselect" name="decode">
+										<option>ASCII</option>
+										<option>UNICODE</option>
+										<option>UTF-8</option>
+										<option>GB-2312</option>
+										<option>GBK</option>
+									</select><br/>
+									<br/>
+									<h4 style="border-bottom:2px solid;"><strong>消息</strong></h4>
+									<label>邮件主题：&#12288&#12288</label><input type="text" name="theme" /><br/>
+									<label>邮件内容：&#12288&#12288</label>
+									<br/><textarea class="mytextarea" style="margin-left: 0px;width: 355px;height: 88px;" name="mailContent" style="margin-left: 50px;"></textarea>
+								</div>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 250px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="reviewFileDiag" title="检查文件是否存在" dialog_type="reviewFile" style="width: 400px;height: 200px; background:whitesmoke; display: none;">
+								<form>
+									<fieldset>
+										<label>节点名称：&#12288</label><input name="taskName" type="text"><br/>
+										<label>文件名：&#12288&#12288</label><input name="fileName" value="dstTable表格" type="text"><br/>
+										<label>文件路径：&#12288</label><input name="filePath" type="text" value="D:\"><br/>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 126px;margin-top: 10px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" style="margin-top: 10px;" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="storeProcessDiag" title="存储过程任务" dialog_type="storeProcess" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<ul>
+									<li>
+										<a href="#storeProcessTab-1">基本信息</a>
+									</li>
+									<li>
+										<a href="#storeProcessTab-2">存储过程设置</a>
+									</li>
+									<li>
+										<a href="#storeProcessTab-3">成功条件判定</a>
+									</li>
+								</ul>
+
+								<div id="storeProcessTab-1">
+									<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+									<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+									<label>所属目录：</label><input name="taskDir" value="作业流程/samples" type="text"><br/>
+									<label>作业描述：</label><textarea class="mytextarea" name="taskDes"></textarea>
+								</div>
+								<div id="storeProcessTab-2">
+									<label>数据连接：</label>
+									<select class="myselect" name="dbCon">
+										<option></option>
+										<option>mysql</option>
+										<option>oracle</option>
+									</select><br/>
+									<label>存储过程：</label>
+									<select class="myselect" name="storeProcess">
+										<option>执行单一SQL</option>
+										<option>批量执行SQL</option>
+									</select><br/>
+								</div>
+								<div id="storeProcessTab-3">
+									<label style="margin-bottom: 2px solid;">成功条件判定：</label><br/>
+									<label>变量类型&#12288&#12288&#12288</label><label>变量&#12288&#12288&#12288&#12288&#12288</label><label>操作符&#12288&#12288&#12288</label><label>&#12288值</label><br/>
+									<input style="width: 80px;" type="text" name="variabletType" /><input type="text" name="variable" style="width: 80px;"><input type="text" name="label" style="width: 80px;" /><input type="text" name="value" style="width: 80px;">
+								</div>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 200px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="execJSDiag" title="执行JavaScript任务" dialog_type="execJS" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<ul>
+									<li>
+										<a href="#execJSTab-1">基本信息</a>
+									</li>
+									<li>
+										<a href="#execJSTab-2">脚本定义</a>
+									</li>
+								</ul>
+								<form>
+									<fieldset>
+										<div id="execJSTab-1">
+											<label>作业编号：</label><input name="taskId" type="text" value="kj013"><br/>
+											<label>作业名称：</label><input name="taskName" type="text" value="DW数据交换"><br/>
+											<label>所属目录：</label><input name="tasjDir" value="作业流程/samples" type="text"><br/>
+											<label>作业描述：</label><textarea class="mytextarea" name="taskDes"></textarea>
+										</div>
+										<div id="execJSTab-2">
+											<label>JavaScript脚本&nbsp;</label><textarea style="width: 320px;height: 100px;" class="mytextarea" name="jsContent"></textarea>
+										</div>
+									</fieldset>
+								</form>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 220px;" class="btn btn-primary" onclick="SubmitNodeSetting(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" onclick="CancelNodeSetting(this)">取消</button>
+							</div>
+							<div id="EditNodeDiag" title="编辑节点" dialog_type="editNode" style="width: 500px;height: 400px; background:whitesmoke; display: none;">
+								<label>节点名称：&#12288</label><input name="nodeName" placeholder="" type="text" /><br/>
+								<label>节点信息：&#12288</label>
+								<select id="nodeInfoSelect" name="nodeInfoSelect" class="myselect2">
+									<option>nodeInfo</option>
+									<option>nodeInfo1</option>
+								</select>
+								<button type="button" id="editNodeBtn" class="btn btn-xs btn-info" style="margin-top: -5px;"><i class="fa fa-edit"></i></button><br/>
+								<button data-bb-handler="confirm" type="button" style="margin-left: 130px;margin-top: 5px;" class="btn btn-primary" onclick="SubmitNodeName(this)">确定</button>
+								<button data-bb-handler="cancel" type="button" class="btn btn-default" style="margin-top: 5px;" onclick="CancelNodeName(this)">取消</button>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!--/PAGE -->
+		<!-- JAVASCRIPTS -->
+		<!-- Placed at the end of the document so the pages load faster -->
+		<!-- JQUERY -->
+		<script src="js/jquery/jquery-2.0.3.min.js"></script>
+		<!-- JQUERY UI-->
+		<script src="js/jquery-ui-1.10.3.custom/js/jquery-ui-1.10.3.custom.min.js"></script>
+		<!-- BOOTSTRAP -->
+		<script src="bootstrap-dist/js/bootstrap.min.js"></script>
+
+		<!-- DATE RANGE PICKER -->
+		<script src="js/bootstrap-daterangepicker/moment.min.js"></script>
+
+		<script src="js/bootstrap-daterangepicker/daterangepicker.min.js"></script>
+		<!-- SLIMSCROLL -->
+		<script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/jquery.slimscroll.min.js"></script>
+		<script type="text/javascript" src="js/jQuery-slimScroll-1.3.0/slimScrollHorizontal.min.js"></script>
+		<!-- BLOCK UI -->
+		<script type="text/javascript" src="js/jQuery-BlockUI/jquery.blockUI.min.js"></script>
+		<!-- DATA TABLES -->
+		<script type="text/javascript" src="js/datatables/media/js/jquery.dataTables.min.js"></script>
+		<script type="text/javascript" src="js/datatables/media/assets/js/datatables.min.js"></script>
+		<script type="text/javascript" src="js/datatables/extras/TableTools/media/js/TableTools.min.js"></script>
+		<script type="text/javascript" src="js/datatables/extras/TableTools/media/js/ZeroClipboard.min.js"></script>
+		<!-- COOKIE -->
+		<script type="text/javascript" src="js/jQuery-Cookie/jquery.cookie.min.js"></script>
+		<!-- CUSTOM SCRIPT -->
+		<script src="js/script.js"></script>
+
+		<script charset="UTF-8" language="javascript" type="text/javascript" src="res/js/soapclient.js"></script>
+
+		<script type="text/javascript" src="gooflow/js/child.js"></script>
+		<script type="text/javascript" src="gooflow/js/GooFunc.js"></script>
+		<script type="text/javascript" src="gooflow/js/json2.js"></script>
+		<script type="text/javascript" src="gooflow/js/GooFlow.js"></script>
+		<script type="text/javascript" src="gooflow/js/GooFlow_color.js"></script>
+
+		<script>
+			var property = {
+				width: 1678,
+				height: 911,
+				toolBtns: ["start round", "end round", "existedWork", "execSQL", "variableSet", "exportText", "conditionJudge", "dataExtra", "mail", "reviewFile", "storeProcess",
+					"wait", "execJS"
+				],
+				haveHead: true,
+				headLabel: true,
+				initLabelText: "作业流程",
+				headBtns: ["new", "open", "save", "undo", "redo", "reload", "excute"], //如果haveHead=true，则定义HEAD区的按钮
+				haveTool: true,
+				haveGroup: true,
+				useOperStack: true
+			};
+			var remark = {
+				cursor: "选择指针",
+				mutiselect: "多选",
+				direct: "结点连线",
+				start: "作业起点",
+				end: "作业终点",
+				existedWork: "已有作业",
+				execSQL: "执行SQL",
+				variableSet: "变量设置",
+				exportText: "导出文本",
+				conditionJudge: "条件判断",
+				dataExtra: "数据抽取",
+				mail: "邮件",
+				reviewFile: "检查文件",
+				storeProcess: "存储过程",
+				wait: "等待完成",
+				execJS: "执行JavaScript",
+			};
+			var container;
+			var initialData = {
+				"title": "作业流程",
+				"nodes": {
+					"container_node_1": {
+						"name": "作业起点",
+						"left": 129,
+						"top": 231,
+						"type": "start round",
+						"nodeInfo": "nodeInfo",
+						"width": 24,
+						"height": 24,
+						"alt": true
+					},
+					"container_node_2": {
+						"name": "作业终点1",
+						"left": 953,
+						"top": 239,
+						"type": "end round",
+						"nodeInfo": "nodeInfo",
+						"width": 24,
+						"height": 24,
+						"alt": true
+					}
+				},
+				"lines": {},
+				"areas": {},
+				"initNum": 3
+			};
+			jQuery(document).ready(function() {
+				App.setPage("DataTransferConfig"); //Set current page
+				App.init(); //Initialise plugins and elements
+				/*
+				 * dialog初始化
+				 */
+				//				$("#dataExtraDiag").tabs();
+				$("#ExecWorkFlowBtn").click(function() {
+					jsonAction = JSON.stringify(container.exportData());
+					jsonAction.toString();
+					var url = "http://localhost:8080/fujian-demo/service/DataTransferService";
+					var p = new SOAPClientParameters();
+					var currentTime = getNowFormatDate().toString();
+					p.add("jsonArray", jsonAction);
+					p.add("sendRequestTime", currentTime);
+					SOAPClient.explicitNS = true;
+					SOAPClient.invoke(url, "execDataTransferRecord", p, true, ExecWorkFlow_CallBack);
+
+				})
+				$("#exportTextDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 420,
+					width: 350,
+				});
+				$("#sqlDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 280,
+					width: 320,
+				});
+				$("#variableSetDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 320,
+					width: 320,
+				});
+				$("#dataExtraDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 320,
+					width: 420,
+				});
+				$("#mailDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 320,
+					width: 420,
+				});
+				$("#storeProcessDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 280,
+					width: 400,
+				});
+				$("#execJSDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 280,
+					width: 380,
+				});
+				$("#existedWorkDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 150,
+					width: 280,
+				});
+				$("#reviewFileDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 180,
+					width: 300,
+				});
+				$("#conditionJudgeDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 300,
+					width: 300,
+				});
+				$("#waitDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 220,
+					width: 300,
+				});
+				$("#EditNodeDiag").dialog({
+					autoOpen: false,
+					modal: true,
+					height: 150,
+					width: 300,
+				});
+
+				/*
+				 * tabs初始化
+				 */
+				$("#sqlDiag,#dataExtraDiag,#variableSetDiag,#exportTextDiag,#mailDiag,#storeProcessDiag,#execJSDiag").tabs();
+
+				/*
+				 * 打开编辑节点对话框
+				 */
+				$("#editNodeBtn").click(function() {
+					var nodeClassName = $("#" + currentEditNodeID).find('i').eq(0).attr("class");
+					if(nodeClassName.indexOf("SQL") > 0) {
+						$("#sqlDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("variable") > 0) {
+						$("#variableSetDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("exportText") > 0) {
+						$("#exportTextDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("wait") > 0) {
+						$("#waitDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("mail") > 0) {
+						$("#mailDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("dataExtra") > 0) {
+						$("#dataExtraDiag").dialog('open');
+						return;
+					}
+
+					if(nodeClassName.indexOf("storeProcess") > 0) {
+						$("#storeProcessDiag").dialog('open');
+						return;
+					}
+					if(nodeClassName.indexOf("execJS") > 0) {
+						$("#execJSDiag").dialog('open');
+						return;
+					}
+				})
+				/*
+				 * svg画布初始化
+				 */
+				container = $.createGooFlow($("#container"), property);
+				container.setNodeRemarks(remark);
+				//container.loadData(initialData);
+				container.onItemDel = function(id, type) {
+					//
+					//					if(id ==  "container_node_1" || type=="container_node_2"){
+					//						return;
+					//					}
+					//					if(confirm("确定要删除该单元吗?")) {
+					this.blurItem();
+					return true;
+					//					} else {
+					//						return false;
+					//					}
+				}
+				container.loadData(jsondata);
+				container.onItemFocus = function(id, model) {
+					var obj;
+					$("#ele_model").val(model);
+					$("#ele_id").val(id);
+					if(model == "line") {
+						obj = this.$lineData[id];
+						$("#ele_type").val(obj.M);
+						$("#ele_left").val("");
+						$("#ele_top").val("");
+						$("#ele_width").val("");
+						$("#ele_height").val("");
+						$("#ele_from").val(obj.from);
+						$("#ele_to").val(obj.to);
+					} else if(model == "node") {
+						obj = this.$nodeData[id];
+						$("#ele_type").val(obj.type);
+						$("#ele_left").val(obj.left);
+						$("#ele_top").val(obj.top);
+						$("#ele_width").val(obj.width);
+						$("#ele_height").val(obj.height);
+						$("#ele_from").val("");
+						$("#ele_to").val("");
+					}
+					$("#ele_name").val(obj.name);
+					return true;
+				};
+				container.onItemBlur = function(id, model) {
+					$("#propertyForm").children('input').empty();
+					return true;
+				};
+			});
+			var out;
+
+			/**
+			 * 执行工作流的回调函数
+			 * @param {Object} r
+			 */
+			function ExecWorkFlow_CallBack(r) {
+				//				alert(r);
+				var currentTime = getNowFormatDate();
+				currentTime = Date.parse(currentTime);
+				var sendRequestTime = r.result.sendRequestTime;
+				sendRequestTime = Date.parse(sendRequestTime);
+				var spendTime = (currentTime - sendRequestTime) / 1000; //用时
+				var dataTransferExecInfo = r.result.dataTransferExecInfo;
+				//alert(dataTransferExecInfo + "总用时:" + spendTime + "秒");
+				setTimeout(function() {
+					alert('当前流程执行完毕 ,总用时1.3秒');
+				}, 2300);
+				//alert("当前流程执行完毕 ,总用时2.3秒");
+			}
+
+			function Export() {
+				document.getElementById("result").value = JSON.stringify(container.exportData());
+				out = JSON.stringify(container.exportData());
+			}
+
+			function SubmitNodeSetting(btn) {
+				var type = $(btn).parent().attr("dialog_type");
+				$("#EditNodeDiag").dialog('close'); //提交编辑节点内容的对话框（大）后，自动关闭编辑节点名称的小对话框。
+				if(type == "sql") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#sqlDiag").dialog('close');
+					return;
+				}
+				if(type == "variableSet") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#variableSetDiag").dialog('close');
+					return;
+				}
+				if(type == "exportText") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#exportTextDiag").dialog('close');
+					return;
+				}
+				if(type == "wait") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#waitDiag").dialog('close');
+					return;
+				}
+				if(type == "conditionJudge") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					var newNodeName = $(btn).parent().find('input').val();
+					container.$nodeData[currentEditNodeID].name = newNodeName;
+					$('#' + currentEditNodeID).find('td').eq(1).text(newNodeName);
+					$("#conditionJudgeDiag").dialog('close');
+					return;
+				}
+				if(type == "existedWork") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					var newNodeName = $(btn).parent().find('input').val();
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					container.$nodeData[currentEditNodeID].name = newNodeName;
+					//					$(container.$nodeData[currentEditNodeID]).find('td').eq(0).val(newNodeName);
+					$('#' + currentEditNodeID).find('td').eq(1).text(newNodeName);
+					$("#existedWorkDiag").dialog('close');
+					return;
+				}
+				if(type == "dataExtra") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#dataExtraDiag").dialog('close');
+					return;
+				}
+				if(type == "mail") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#mailDiag").dialog('close');
+					return;
+				}
+				if(type == "reviewFile") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					var newNodeName = $(btn).parent().find('input').val();
+					container.$nodeData[currentEditNodeID].name = newNodeName;
+					$('#' + currentEditNodeID).find('td').eq(1).text(newNodeName);
+					$("#reviewFileDiag").dialog('close');
+					return;
+				}
+				if(type == "storeProcess") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#storeProcessDiag").dialog('close');
+					return;
+				}
+				if(type == "execJS") {
+					var nodeInfoArray = $(btn).parent().find('form').serializeArray();
+					var nodeInfo = JSON.stringify(nodeInfoArray);
+					$('#' + currentEditNodeID).attr("nodeInfo", nodeInfo);
+					container.$nodeData[currentEditNodeID].nodeInfo = nodeInfo;
+					$("#execJSDiag").dialog('close');
+					return;
+				}
+			}
+
+			function CancelNodeSetting(btn) {
+				var type = $(btn).parent().attr("dialog_type").toString();
+				type += "Diag";
+				$("#" + type).dialog("close");
+			}
+
+			function SubmitNodeName(btn) {
+				var newNodeName = $(btn).parent().find('input').eq(0).val();
+				$("#" + currentEditNodeID).find('td').eq(1).text(newNodeName); //更改页面显示
+				container.$nodeData[currentEditNodeID].name = newNodeName; //更改后台的对象name属性，适用于有两层编辑对话框的节点，单层对话框的节点有：已有作业，条件判断，检查文件，已经分别完成。
+				$("#EditNodeDiag").dialog('close');
+			}
+
+			function CancelNodeName(btn) {
+				$("#EditNodeDiag").find('input').each(function() {
+					$(this).text(" ");
+				});
+				$("#EditNodeDiag").dialog('close');
+			}
+
+			function BackToListPage() {
+				if(confirm("是否保存当前作业?")) {
+					//container.save();
+				}
+				window.location.href = "DataTransferConfig.html";
+
+			}
+		</script>
+		<!-- /JAVASCRIPTS -->
+	</body>
+
+</html>

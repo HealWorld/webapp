@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>资产分析</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <script type="text/javascript" src="./topjui/plugins/echarts/echarts.min.js"></script>
+</head>
+<style> 
+html,body{height:100%}  
+body{ margin:0} 
+/* 去除设置div 高度100% 浏览器右侧产生滚动条 */ 
+</style> 
+<body>
+    <div class="topPanel" style="width:100%;height:35px;padding-top: 8px; background-color:#70afc4;">
+        <div id="main3" style="width:100%;height:100%;">
+            <span style="margin-left:10px;margin-top:2px;font-size:17px;float:left"><b>集团：</b></span>
+            <select id="year" style="width:15%;height:25px;float:left">
+                <option value="">中咨集团</option>
+            </select>
+            <span style="margin-left:10px;margin-top:2px;font-size:17px;float:left"><b>分子公司：</b></span>
+            <select id="corp" style="width:15%;height:25px;float:left">
+                <option value="">不选择表示全集团</option>
+                <option value="">中咨泰克</option>
+                <option value="">中咨华科</option>
+                <option value="">中咨数据</option>
+                <option value="">中咨盛裕</option>
+            </select>
+            <span style="margin-left:10px;margin-top:2px;font-size:17px;float:left"><b>年份：</b></span>
+            <select id="year" style="width:15%;height:25px;float:left">
+                <option value="2016">2017</option>
+                <option value="2015">2016</option>
+                <option value="2014">2015</option>
+            </select>
+            <span style="margin-left:10px;margin-top:2px;margin-bottom:1px;font-size:17px;float:left"><b>季度：</b></span>
+            <select id="quarter" style="width:15%;height:25px;float:left">
+                <option value="0">不选择表示全年度</option>
+                <option value="1">第一季度</option>
+                <option value="2">第二季度</option>
+                <option value="2">第三季度</option>
+                <option value="2">第四季度</option>
+            </select>
+            <button style="margin-left:10px;margin-bottom:2px;padding-top:2px;padding-bottom:2px;width:50px;float:left" class="btn btn-default" data-dismiss="modal" onclick="showSelected()">查询</button>
+        </div>
+    </div>
+    <div style="width: 100%;height: 900px;">
+        <div id="main1" style="width: 65%;height:100%;float:left;"></div>
+        <div id="main2" style="width: 35%;height:100%;float:left;"></div>
+    </div>
+    <script type="text/javascript">
+        var myChart1 = echarts.init(document.getElementById('main1'));
+        var myChart2 = echarts.init(document.getElementById('main2'));
+        var option1 = {
+            //backgroundColor: '#60C0DD',
+            color: ['#6E9BC4','#B6DDD8','#A696CE','#99C5D1','#66DD94','#70AFC4','#DB5E8C','#D9534F','#2D323D','#6F6F6F'],
+            title: {
+                top: '3%',
+                left: 'center',
+                text: '中咨集团2017年度管理费用',
+                textStyle: {
+                    fontSize: '26'
+                }
+            },
+            tooltip: {
+                trigger: 'axis',
+                formatter: "{b}:<br/>{a2}:{c2}<br/>{a3}:{c3}<br/><br/>{a0}:{c0}%<br/>{a1}:{c1}%",
+                textStyle: {
+                    fontSize: 22
+                },
+                axisPointer: {
+                    //type: 'cross',
+                    crossStyle: {
+                        color: '#94ff61'
+                    }
+                }
+            },
+            legend: {
+                data:['上年度','本年度','同比增长率','环比增长率'],
+                bottom: '2%',
+                left: 'center',
+                itemGap: 30,//图例间距
+                itemWidth: 40,//图例标记的图形宽度
+                itemHeight: 20,//图例标记的图形高度
+                textStyle: {
+                    fontSize: 22//图例字体大小
+                }
+            },
+            grid: {
+                show: true,//是否显示直角坐标系网格
+                top: '10%',
+                bottom: '10%',//grid 组件离容器下侧的距离
+                left: '4%',
+                right: '4%',
+                //backgroundColor: '#27727B',//直角坐标系背景颜色
+                containLabel: true//containLabel 为 true 的时候，grid.left  grid.right  grid.top  grid.bottom  grid.width  grid.height 决定的是包括了坐标轴标签在内的所有内容所形成的矩形的位置。
+            },
+            xAxis: [
+                {
+                    type: 'category',
+                    show: true,
+                    data: [
+                        {value: '办公费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '会议费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '差旅交通费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '业务招待费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '考察联络费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '物业管理费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '取暖费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '水电费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '绿化保洁费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '聘请中介机构费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '咨询费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '认证费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '诉讼费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '招投标费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '低值易耗品费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '招解聘费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '固定资产使用费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '信息化费用', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '广告费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '职工教育经费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '劳务费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '团体会费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '福利费', textStyle: {color: '#222222', fontSize: 18}},
+                        {value: '其他费用', textStyle: {color: '#222222', fontSize: 18}},
+                    ],
+                    axisPointer: {
+                        type: 'shadow'
+                    }
+                },
+                {
+                    type: 'category',
+                    show: false,
+                    data: ['办公费','会议费','差旅交通费','业务招待费'],
+                    axisPointer: {
+                        type: 'shadow',
+                        show: 'false'
+                    }
+                }
+            ],
+            yAxis: [
+                {
+                    type: 'value',
+                    name: '金额/万元',
+                    nameTextStyle: {
+                        color: '#222222',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontSize: 18
+                    }
+                },
+                {
+                    type: 'value',
+                    name: '增长率/%',
+                    nameTextStyle: {
+                        color: '#222222',
+                        fontStyle: 'normal',
+                        fontWeight: 'normal',
+                        fontSize: 18
+                    }
+                }
+            ],
+            series: [
+                {
+                    name: '上年度',
+                    type: 'bar',
+                    data: [71,2,1,14,21,11]
+                },
+                {
+                    name: '本年度',
+                    type: 'bar',
+                    data: [71,22,41,41,41]
+                },
+                {
+                    name: '同比增长率',
+                    //type: 'bar',
+                    type: 'line',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    data: [99,71,82,78,91]
+                },
+                {
+                    name: '环比增长率',
+                    //type: 'bar',
+                    type: 'line',
+                    xAxisIndex: 1,
+                    yAxisIndex: 1,
+                    data: [80,91,82,71,91]
+                }
+            ]
+        };
+
+        var option2 = {
+            title: [{
+                top: '3%',
+                left: 'center',
+                text: '资产总计',
+                textStyle: {
+                    //color: '#C6E579',
+                    fontSize: '26'
+                }
+            },
+            {
+                top: '52.5%',
+                left: 'center',
+                text: '流动资产',
+                textStyle: {
+                    //color: '#C6E579',
+                    fontSize: '26'
+                }
+            }],
+            tooltip: {
+                trigger: 'item',
+                formatter: "{a} <br/>{b}: {c}万元 ({d}%)",
+                textStyle: {
+                    //color: '#FF3930',
+                    fontStyle: 'normal',
+                    fontWeight: 'normal',
+                    fontSize: 22
+                }
+            },
+            legend: [{
+                data:['会议费','业务招待费','固定资产使用费'],
+                orient: 'horizontal',
+                bottom: '48.5%',
+                left: 'center',
+                itemGap: 5,
+                itemWidth: 18,//图例标记的图形宽度
+                itemHeight: 16,//图例标记的图形高度
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 16//图例字体大小
+                }
+            },
+            {
+                data:['会议费','业务招待费','固定资产使用费','招投标费','信息化费用'],
+                orient: 'horizontal',
+                bottom: '0%',
+                left: 'center',
+                itemGap: 5,
+                itemWidth: 18,//图例标记的图形宽度
+                itemHeight: 16,//图例标记的图形高度
+                textStyle: {
+                    fontWeight: 'normal',
+                    fontSize: 16//图例字体大小
+                }
+            }],
+            series: [
+                {
+                    name: '2017年全年度',
+                    type:'pie',
+                    legendHoverLink: false,
+                    radius: ['28%','38%'],
+                    center: ['50%','28%'],
+                    hoverAnimation: false,
+                    color:['#5E87B0','#B6DDD8','#A696CE','#99C5D1','#66DD94'],
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    data: [
+                        {value:79,name:'会议费'},
+                        {value:35,name:'业务招待费'},
+                        {value:48,name:'固定资产使用费'}
+                    ]
+                },
+                {
+                    name: '2016年全年度',
+                    type: 'pie',
+                    radius: ['38%','48%'],
+                    center: ['50%','28%'],
+                    hoverAnimation: false,
+                    color:['#6E9BC4','#CAF1EC','#BAA9E2','#A8D9E5','#67F1A7'],
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: [
+                        {value:66,name:'会议费',itemStyle:{normal:{color:'#6E9BC4'}}},
+                        {value:22,name:'业务招待费',itemStyle:{normal:{color:'#CAF1EC'}}},
+                        {value:44,name:'固定资产使用费',itemStyle:{normal:{color:'#BAA9E2'}}}
+                    ]
+                },
+                {
+                    name: '2017年全年度',
+                    type: 'pie',
+                    radius: ['28%','38%'],
+                    center: ['50%','77%'],
+                    hoverAnimation: false,
+                    color:['#5E87B0','#B6DDD8','#A696CE','#99C5D1','#66DD94'],
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: false
+                        }
+                    },
+                    data: [
+                        {value:79,name:'会议费'},
+                        {value:35,name:'业务招待费'},
+                        {value:48,name:'固定资产使用费'},
+                        {value:88,name:'招投标费'},
+                        {value:98,name:'信息化费用'}
+                    ]
+                },
+                {
+                    name: '2017年全年度',
+                    type: 'pie',
+                    radius: ['38%','48%'],
+                    center: ['50%','77%'],
+                    hoverAnimation: false,
+                    color:['#6E9BC4','#CAF1EC','#BAA9E2','#A8D9E5','#67F1A7'],
+                    label: {
+                        normal: {
+                            show: false,
+                            position: 'center'
+                        }
+                    },
+                    labelLine: {
+                        normal: {
+                            show: false
+                        },
+                        emphasis: {
+                            show: true
+                        }
+                    },
+                    data: [
+                        {value:89,name:'会议费',itemStyle:{normal:{color:'#6E9BC4'}}},
+                        {value:25,name:'业务招待费',itemStyle:{normal:{color:'#CAF1EC'}}},
+                        {value:58,name:'固定资产使用费',itemStyle:{normal:{color:'#BAA9E2'}}},
+                        {value:88,name:'招投标费',itemStyle:{normal:{color:'#A8D9E5'}}},
+                        {value:88,name:'信息化费用',itemStyle:{normal:{color:'#67F1A7'}}}
+                    ]
+                }
+            ]
+        };
+        myChart1.setOption(option1,true);   
+        myChart2.setOption(option2,true);   
+    </script>
+</body>
+</html>
