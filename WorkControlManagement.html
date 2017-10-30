@@ -1321,6 +1321,7 @@
 		<script>
 			var max_works = 5;
 			var cur_working = 0;
+			var cur_workings = [];
 			jQuery(document).ready(function() {
 				App.setPage("DataTransferConfig0"); //Set current page
 				App.init(); //Initialise plugins and elements
@@ -1410,15 +1411,19 @@
 				// 遍历表格计算当前执行的工作量
 				for(var j = 0; j < eles.length; j++){
 					if($(eles).eq(j).closest('tr').find('td:nth-child(6)').html() == '执行中'){
+						cur_workings.push($(eles).eq(j).closest('tr').find('td:nth-child(6)'));
 						cur_working++;
 					}
 				}
 				// 若达到最大工作量，则不启动
-				if(cur_working == 5){
+				if(cur_working >= 5){
 					alert('已到最大执行数');
 					return;
 				}else{
 					for(var i = 0; i < eles.length; i++){
+						if(cur_working == 5){
+							return;
+						}
 						// 没有达到最大工作量，启动未执行的工作
 						if($(eles).eq(i).prop('checked') && $(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '未启动'){
 							cur_working++;
@@ -1433,9 +1438,7 @@
 							var temp = $(eles).eq(i).closest('tr').find('td:nth-child(7) .progress span').html().split('%')[0];
 							workRun($(eles).eq(i));
 						}
-						if(cur_working == 5){
-							return;
-						}
+						
 						// alert($(eles).eq(2).closest('tr').find("td:nth-child(7) .progress-bar").width(50));
 					}
 				}
