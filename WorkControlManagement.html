@@ -919,6 +919,7 @@
 										</div>
 									</div>
 								</div>
+								
 								<div class="row top-search" style = 'height: 40px;background:#70afc4'>
 									<div class="col-md-12" style = 'margin-left:5px;height:40px;vertical-align:middle;'>
 										<div class="col-md-3">
@@ -968,251 +969,261 @@
 													<span style = 'color: #f90' class = 'max-num'>5</span> <a href="javascript: " data-toggle = 'modal' data-target = '#setWorksNum' style = 'margin-left: 10px;' class = 'modify-max-works'>修改</a></span>
 												</div> -->
 											</div>
-											<div class="box-body">
-												<div class="col-lg-12 hidden-xs" style = 'margin-bottom: 10px'>
-													
+											<div class="box border gray" style = 'border: 0'>
+												<div class="header-tabs" style = 'height: 50px;'>
+													<ul class="nav nav-tabs nav-work" style = 'top: 17px'>
+														<li>
+															<a href="#done_work" data-toggle="tab"><i class="fa fa-laptop"></i> <span class="hidden-inline-mobile">已完成作业</span><span class="badge done-work-badge" style = 'margin-left:5px;background-color: #dd5a43;display: none'>0</span></a>
+														</li>
+														<li class = 'active'>
+															<a href="#undeal_work" data-toggle="tab"><i class="fa fa-calendar-o"></i> <span class="hidden-inline-mobile">未完成作业</span></a>
+														</li>
+													</ul>
 												</div>
-												<table id="WorkFlowTable" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered" style  = 'border-bottom: 0;border-left: 0;border-right: 0'>
-													<thead>
-														<tr>
-															<th style="width: 20px;text-align: center;"><input type="checkbox" id="CheckboxForUserID"></th>
-															<th style="width: 60px;text-align: center;">作业名称</th>
-															<th style="width: 60px;text-align: center;">所属目录</th>
-															<th style="width: 60px;text-align: center;" class = 'hidden-xs'>作业描述</th>
-															<th style="width: 40px;text-align: center;">优先级</th>
-															<th style="width: 40px;text-align: center;">状态</th>
-															<th style="width: 60px;text-align: center;">作业进度</th>
-															<th style="width: 60px;text-align: center;">执行时间</th>
-															<th style="width: 40px;text-align: center;">操作</th>
-														</tr>
-													</thead>
-													<tbody style="height:20px;text-align: center;">
-														<tr class="gradeX">
-															<td><input type="checkbox" value="state"></td>
-															<td>kj01</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从areatest表中抽取数据,导出到目的终端,并从目的终端上传回dst数据库</td>
-															<td class = 'red'>高</td>
-															<td>已完成</td>
-															<td>
-																<div class="progress progress-striped">
-																    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" 
-																        aria-valuemin="0" aria-valuemax="100" style="width: 100%;">
-																    </div>
-															        <span>100%</span>
-																</div>
-															</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeC">
-															<td><input type="checkbox" value="state"></td>
-															<td>kj02</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">管理员进行的cmd操作</td>
-															<td class = 'orange'>中</td>
-															<td>执行中</td>
-															<td>
-																<div class="progress progress-striped active">
-																    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" 
-																        aria-valuemin="0" aria-valuemax="100" style="width: 40%;">
-																    </div>
-															        <span>40%</span>
-																</div>
-															</td>
-															<td>0"</td>
-															<td>
-																<a href="#"><span class = 'fa fa-edit'></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj03</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">用户自定义</td>
-															<td class ='green1'>低</td>
-															<td>执行中</td>
-															<td>
-																<div class="progress progress-striped active">
-																    <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" 
-																        aria-valuemin="0" aria-valuemax="100" style="width: 0%;">
-																    </div>
-															        <span>0%</span>
-																</div>
-															</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj04</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">dw数据库数据清洗作业</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeX">
-															<td><input type="checkbox"></td>
-															<td>kj05</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从多个数据库中查找数据记录</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeC">
-															<td><input type="checkbox"></td>
-															<td>kj06</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从中心数据仓库抽取数据到demo_2017节点服务器</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj07</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">在远端子节点进行文件查找作业</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj08</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">测试</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeX">
-															<td><input type="checkbox"></td>
-															<td>kj09</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">执行ETL工具的脚本</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeC">
-															<td><input type="checkbox"></td>
-															<td>kj10</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从数据库中删除sd表格</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj11</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从dw节点服务器抽取数据至中心服务器</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj12</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">用系统中的数据库引擎执行sql语句,生成数据库</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj13</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">从元数据源载入</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
+												<div class="box-body" style = 'border: 1px solid #d9d9d9; margin: 0 4px'>
+													<div class="tab-content">
+														<div id="undeal_work" class = 'tab-pane fade in active'>
+															<table id="WorkFlowTable" cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered" style  = 'border-bottom: 0;border-left: 0;border-right: 0;transition:  .5s'>
+																<thead>
+																	<tr>
+																		<th style="width: 20px;text-align: center;"><input type="checkbox" id="CheckboxForUserID"></th>
+																		<th style="width: 60px;text-align: center;">作业名称</th>
+																		<th style="width: 60px;text-align: center;">所属目录</th>
+																		<th style="width: 60px;text-align: center;" class = 'hidden-xs'>作业描述</th>
+																		<th style="width: 40px;text-align: center;">优先级</th>
+																		<th style="width: 60px;text-align: center;">状态</th>
+																		<th style="width: 60px;text-align: center;">作业进度</th>
+																		<th style="width: 60px;text-align: center;">执行时间</th>
+																		<th style="width: 40px;text-align: center;">操作</th>
+																	</tr>
+																</thead>
+																<tbody style="height:20px;text-align: center;">
+																	<tr class="gradeX">
+																		<td><input type="checkbox" value="state"></td>
+																		<td>kj01</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从areatest表中抽取数据,导出到目的终端,并从目的终端上传回dst数据库</td>
+																		<td class = 'red'>高</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeC">
+																		<td><input type="checkbox" value="state"></td>
+																		<td>kj02</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">管理员进行的cmd操作</td>
+																		<td class = 'orange'>中</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#"><span class = 'fa fa-edit'></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj03</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">用户自定义</td>
+																		<td class ='green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj04</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">dw数据库数据清洗作业</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeX">
+																		<td><input type="checkbox"></td>
+																		<td>kj05</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从多个数据库中查找数据记录</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeC">
+																		<td><input type="checkbox"></td>
+																		<td>kj06</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从中心数据仓库抽取数据到demo_2017节点服务器</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj07</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">在远端子节点进行文件查找作业</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj08</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">测试</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeX">
+																		<td><input type="checkbox"></td>
+																		<td>kj09</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">执行ETL工具的脚本</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeC">
+																		<td><input type="checkbox"></td>
+																		<td>kj10</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从数据库中删除sd表格</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj11</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从dw节点服务器抽取数据至中心服务器</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj12</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">用系统中的数据库引擎执行sql语句,生成数据库</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj13</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">从元数据源载入</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
 
-														<tr class="gradeA">
-															<td><input type="checkbox"></td>
-															<td>kj14</td>
-															<td>作业流程/Sample</td>
-															<td class="center hidden-xs">对ares数据库中的数据进行数据清洗</td>
-															<td class = 'green1'>低</td>
-															<td>未启动</td>
-															<td>-</td>
-															<td>0"</td>
-															<td>
-																<a href="#" ><span class="fa fa-edit"></span></a>
-															</td>
-														</tr>
-													</tbody>
-													<tfoot>
-														<tr>
-															<th style = 'border: 0 !important' colspan= '8'>
-																<button class=" btn" style = 'background: #5e87b0;color: white'><span class="fa fa-plus" style="margin-right: 5px;color: white"></span>新增作业</button>
-																<button class=" btn " onclick = 'startWork()' style = 'background: #a8bc7b;color: white'><span class="fa fa-play" style="margin-right: 5px;color:white"></span>启动作业</button>
-																<button class="btn btn-warning"><span class="fa fa-pause" style="margin-right: 5px;color: white"></span>暂停</button>
-																<button class="btn btn-info"><span class="fa fa-refresh" style="margin-right: 5px;color: white"></span>恢复</button>
-																<button class="btn ui-state-hover" style = 'background: #f90;color: white'><span class="fa fa-stop" style="margin-right: 5px;color: white"></span>停止</button>
-																<button class="btn btn-danger"><span class="fa fa-trash-o" style="margin-right: 5px;color: white"></span>删除</button>
-															</th>
-															<th style = 'border: 0 !important' style  = 'line-height: 40px'>
-																<span class = 'cur-max-works'>当前最大工作数：<span>5</span></span>
-																<a href="javascript:" data-toggle = 'modal' data-target = '#modify_max_works' class = 'btn btn-primary btn-xs'>设置</a>
-															</th>
-														</tr>
-													</tfoot>
-												</table>
+																	<tr class="gradeA">
+																		<td><input type="checkbox"></td>
+																		<td>kj14</td>
+																		<td>作业流程/Sample</td>
+																		<td class="center hidden-xs">对ares数据库中的数据进行数据清洗</td>
+																		<td class = 'green1'>低</td>
+																		<td>未启动</td>
+																		<td>-</td>
+																		<td>-</td>
+																		<td>
+																			<a href="#" ><span class="fa fa-edit"></span></a>
+																		</td>
+																	</tr>
+																</tbody>
+																<tfoot>
+																	<tr>
+																		<th style = 'border: 0 !important' colspan= '8'>
+																			<button class=" btn" style = 'background: #5e87b0;color: white'><span class="fa fa-plus" style="margin-right: 5px;color: white"></span>新增作业</button>
+																			<button class=" btn " onclick = 'startWork()' style = 'background: #a8bc7b;color: white'><span class="fa fa-play" style="margin-right: 5px;color:white"></span>启动作业</button>
+																			<button class="btn btn-warning" onclick = 'pauseWork()'><span class="fa fa-pause" style="margin-right: 5px;color: white"></span>暂停</button>
+																			<button class="btn btn-info"><span class="fa fa-refresh" style="margin-right: 5px;color: white"></span>恢复</button>
+																			<button class="btn ui-state-hover" style = 'background: #f90;color: white'><span class="fa fa-stop" style="margin-right: 5px;color: white"></span>停止</button>
+																			<button class="btn btn-danger" onclick = 'removeWork()'><span class="fa fa-trash-o" style="margin-right: 5px;color: white"></span>删除</button>
+																		</th>
+																		<th style = 'border: 0 !important' style  = 'line-height: 40px'>
+																			<span class = 'cur-max-works'>当前最大工作数：<span>5</span></span>
+																			<a href="javascript:" data-toggle = 'modal' data-target = '#modify_max_works' class = 'btn btn-primary btn-xs'>设置</a>
+																		</th>
+																	</tr>
+																</tfoot>
+															</table>
+														</div>
+														<div id="done_work" class = 'tab-pane fade'>
+															<table  cellpadding="0" cellspacing="0" border="0" class="datatable table table-striped table-bordered" style  = 'border-bottom: 0;border-left: 0;border-right: 0;'>
+																<thead>
+																	<tr>
+																		<th style="width: 20px;text-align: center;"><input type="checkbox" id="CheckboxForUserID"></th>
+																		<th style="width: 60px;text-align: center;">作业名称</th>
+																		<th style="width: 60px;text-align: center;">所属目录</th>
+																		<th style="width: 80px;text-align: center;" class = 'hidden-xs'>作业描述</th>
+																		<th style="width: 60px;text-align: center;">开始时间</th>
+																		<th style="width: 60px;text-align: center;">结束时间</th>
+																		<th style="width: 60px;text-align: center;">执行时间</th>
+
+																		<th style="width: 40px;text-align: center;">操作</th>
+																	</tr>
+																</thead>
+																<tbody style="height:20px;text-align: center;">
+																</tbody>
+															</table>
+														</div>
+													</div>
+												</div>
 											</div>
 										</div>
 										<!-- /BOX -->
-							
 
 								
 							</div>
@@ -1223,7 +1234,7 @@
 
 			<!-- 设置作业最大量模态框 -->
 			<div class="modal fade" id="modify_max_works" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-			    <div class="modal-dialog">
+			    <div class="modal-dialog" > 
 			        <div class="modal-content">
 			            <div class="modal-header">
 			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
@@ -1251,6 +1262,43 @@
 			            </div>
 			            <div class="modal-body">
 							操作成功
+			            </div>
+			            <div class="modal-footer text-center">
+			                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			            </div>
+			        </div><!-- /.modal-content -->
+			    </div><!-- /.modal -->
+			</div>
+
+			<!-- 是否确定删除作业 -->
+			<div class="modal fade" id="remove_work" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			                <h4 class="modal-title" id="myModalLabel">提示</h4>
+			            </div>
+			            <div class="modal-body">
+							确定删除所选择的作业？
+			            </div>
+			            <div class="modal-footer text-center">
+			                 <button type="button" class="btn btn-primary remove-work-ok">确定</button>
+			                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+			            </div>
+			        </div><!-- /.modal-content -->
+			    </div><!-- /.modal -->
+			</div>
+
+			<!-- 删除成功 -->
+			<div class="modal fade" id="removeWorkOk" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+			    <div class="modal-dialog">
+			        <div class="modal-content">
+			            <div class="modal-header">
+			                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+			                <h4 class="modal-title" id="myModalLabel">提示</h4>
+			            </div>
+			            <div class="modal-body">
+							删除成功
 			            </div>
 			            <div class="modal-footer text-center">
 			                <button type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
@@ -1321,37 +1369,8 @@
 		<script>
 			var max_works = 5;
 			var cur_working = 0;
-			var cur_workings = [];
-			jQuery(document).ready(function() {
-				App.setPage("DataTransferConfig0"); //Set current page
-				App.init(); //Initialise plugins and elements
-				$('#WorkFlowTable').DataTable({
-					//					"columnDefs":[{"orderable":false,"targets":0,1,2,3,4,5,6}],
-					"sPaginationType": "full_numbers",
-					"aLengthMenu": [15, 30, 45],
-					"iDisplayLength": 16,
-					"bPaginate": false,
-					"bFilter": false,
-					"bInfo" : true,
-					"bInfo": true,
-					"aoColumnDefs" : [{"bSortable": false, "aTargets" : [0,6,7]}],	// 取消对表格数据的第0和7列进行排序
-					"oLanguage": {
-						"sLengthMenu": "每页显示 _MENU_ 条记录",
-						"sZeroRecords": "抱歉， 没有找到",
-						"sInfo": "从 _START_ 到 _END_ /共 _TOTAL_ 条数据",
-						"sInfoEmpty": "没有数据",
-						"sInfoFiltered": "(从 _MAX_ 条数据中检索)",
-						"sZeroRecords": "没有检索到数据",
-						"sSearch": "搜索:",
-						"oPaginate": {
-							"sFirst": "首页",
-							"sPrevious": "前一页",
-							"sNext": "后一页",
-							"sLast": "尾页"
-						}
-					}
-				}); 
-
+			var timers = [];
+			$(function(){
 				// 初始化最大工作数滑块部件
 				$( ".max-work-control" ).slider({
 			      	  range: "min",
@@ -1366,6 +1385,8 @@
 			    // 设置最大工作数
 			    $('.set-maxnum-success').on('click',function(){
 			    	$('.cur-max-works span').html($('#modify_max_works .modal-body span').html());
+			    	max_works = $('#modify_max_works .modal-body span').html();
+			    	startWork();
 			    	$('#modify_max_works').modal('hide');
 				    // 成功设置最大工作数
 				   	$('#modify_max_works').on("hidden.bs.modal",function(){
@@ -1405,67 +1426,177 @@
 					window.location.href = "DataTransferConfig1.html";
 				});
 
-			})
-			function startWork(){
-				var eles = $('table tbody td input[type="checkbox"]');
-				// 遍历表格计算当前执行的工作量
-				for(var j = 0; j < eles.length; j++){
-					if($(eles).eq(j).closest('tr').find('td:nth-child(6)').html() == '执行中'){
-						cur_workings.push($(eles).eq(j).closest('tr').find('td:nth-child(6)'));
-						cur_working++;
+				// 删除作业
+				$('.remove-work-ok').on('click',function(){
+					$('#remove_work').modal('hide');
+					removeWorkOk();
+					$('#removeWorkOk').modal('show');
+				});
+				// 使用空格执行作业，便于调试
+				$(document).keydown(function(event){ 
+					if(event.keyCode == 32){
+						startWork();
 					}
+				}); 
+
+				// 模态框弹出时垂直居中
+				$('#modify_max_works').on('show.bs.modal', function (e) {  
+	            	modalVerticalMiddle(this);
+	        	}); 
+				$('#modify_max_works_success').on('show.bs.modal',function(){
+					modalVerticalMiddle(this);
+				});
+
+				// 点击已完成作业关闭新增已完成作业的数量显示
+				$('.nav-work li:nth-child(1)').on('click',function(){
+					$('.done-work-badge').hide().html(0);
+				})
+			});
+
+			// 模态框垂直居中
+			function modalVerticalMiddle(ele){
+				$(ele).css('display', 'block');  
+	            var modalHeight=$(window).height() / 2 - $(ele).find('.modal-dialog').height() / 2;  
+	            $(ele).find('.modal-dialog').css({  
+	                'margin-top': modalHeight  
+	            });  
+			}
+
+			// 启动作业
+				function startWork(){
+					var eles = $('table tbody td input[type="checkbox"]');
+					cur_working = 0;
+					// 遍历表格计算当前执行的工作量
+					for(var j = 0; j < eles.length; j++){
+						$(eles).eq(j).data('flag','1');
+						if(($(eles).eq(j).closest('tr').find('td:nth-child(6)').html() == '未启动' || $(eles).eq(j).closest('tr').find('td:nth-child(6)').html() == '暂停') && $(eles).eq(j).prop('checked')){
+							$(eles).eq(j).closest('tr').find('td:nth-child(6)').html('等待执行');
+						}
+						if($(eles).eq(j).closest('tr').find('td:nth-child(6)').html() == '执行中'){
+							cur_working++;
+						}
+					}
+					workAction(eles);
 				}
-				// 若达到最大工作量，则不启动
-				if(cur_working >= 5){
-					alert('已到最大执行数');
-					return;
-				}else{
+				function workAction(eles){
 					for(var i = 0; i < eles.length; i++){
-						if(cur_working == 5){
+						if(cur_working >= max_works){
 							return;
 						}
 						// 没有达到最大工作量，启动未执行的工作
-						if($(eles).eq(i).prop('checked') && $(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '未启动'){
+						if($(eles).eq(i).prop('checked') && ($(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '等待执行' || $(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '暂停')){
 							cur_working++;
 							$(eles).eq(i).closest('tr').find('td:nth-child(6)').html('执行中');
-							$(eles).eq(i).closest('tr').find('td:nth-child(7)').html('<div class="progress '+
-								'progress-striped active">'
-								+ '<div class="progress-bar progress-bar-warning" role="progressbar" '
-								+ 'aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">'
-								+ '</div>'
-								+ '<span>0%</span>'
-								+ '</div>');
+							if($(eles).eq(i).closest('tr').find('td:nth-child(7)').html() == '-'){
+								$(eles).eq(i).closest('tr').find('td:nth-child(7)').html('<div class="progress '+
+									'progress-striped active">'
+									+ '<div class="progress-bar progress-bar-warning" role="progressbar" '
+									+ 'aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 0%;">'
+									+ '</div>'
+									+ '<span>0%</span>'
+									+ '</div>');
+								$(eles).eq(i).closest('tr').find('td:nth-child(8)').html('00:00:00')
+							}
 							var temp = $(eles).eq(i).closest('tr').find('td:nth-child(7) .progress span').html().split('%')[0];
-							workRun($(eles).eq(i));
+							workRun($(eles).eq(i),eles);
 						}
 						
 						// alert($(eles).eq(2).closest('tr').find("td:nth-child(7) .progress-bar").width(50));
 					}
 				}
-			}
-			function workRun(ele){
-				ele.time = $(ele).closest('tr').find('td:nth-child(8)').html().split('"')[0];
-				ele.num = 0;
-				ele.timer = setInterval(function(){
-					ele.num++;
-					if(ele.num % 10 == 0){
-						ele.time++;
-						$(ele).closest('tr').find('td:nth-child(8)').html(ele.time + '"');
+				function workRun(ele,eles){
+					ele.time = $(ele).closest('tr').find('td:nth-child(8)').html().indexOf(7);
+					ele.num = 0;
+					ele.timer = setInterval(function(){
+						ele.num++;
+						if(ele.num % 10 == 0){
+							ele.time++;
+							$(ele).closest('tr').find('td:nth-child(8)').html('00:00:0' + ele.time);
+						}
+					 	var cur_width = parseInt($(ele).closest('tr').find('td:nth-child(7) .progress-bar')[0].style.width.split('%')[0]);
+					 	if(cur_width == 100){
+					 		clearInterval(ele.timer);
+					 		cur_working--;
+					 		$(ele).closest('tr').find('td:nth-child(7) .progress').removeClass('active');
+					 		$(ele).closest('tr').find('td:nth-child(6)').html('已完成');
+					 		$(ele).closest('tr').css({
+					 			'transition':'.3s',
+					 			'transform' : 'rotateX(90deg)',
+					 			'transform-origin' : 'top'
+					 		});
+					 		setTimeout(function(){
+					 			var tempNode = $(ele).closest('tr').css('transform','none').remove();
+					 			dealDoneWork(tempNode);
+					 		},300);
+					 		var temp = 0;
+					 		if($('.done-work-badge').html() == ''){
+					 			temp = 0;
+					 		}else{
+					 			temp = parseInt($('.done-work-badge').html());
+					 		}
+					 		temp++;
+					 		// console.log($('.nav-work li:nth-child(1)').hasClass('active'));
+					 		if($('.nav-work li:nth-child(1)').hasClass('active')){
+					 			temp = 0;
+					 		}else{
+					 			$('.done-work-badge').html(temp).show();
+					 		}
+					 		workAction(eles);
+					 	}else{
+						 	cur_width += 2;
+						 	$(ele).closest('tr').find('td:nth-child(7) .progress span').html(cur_width + '%');
+						 	$(ele).closest('tr').find('td:nth-child(7) .progress-bar').css('width',cur_width + '%');
+					 	}
+					 	if((ele.data('flag') == 2)){
+					 		clearInterval(ele.timer);
+					 	}
+					 },100);
+					timers.push(ele.timer);
+				}
+
+			// 删除作业
+				function removeWork(){
+					$('#remove_work .modal-body').html('是否删除所选作业？');
+					var eles = $('table tbody td input[type="checkbox"]');
+					for(var i = 0; i < eles.length; i++){
+						if($(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '执行中' && $(eles).eq(i).prop('checked')){
+							$('#remove_work .modal-body').html('有正在执行的作业，是否继续删除？');
+						}
 					}
-				 	var cur_width = parseInt($(ele).closest('tr').find('td:nth-child(7) .progress-bar')[0].style.width.split('%')[0]);
-				 	if(cur_width == 100){
-				 		clearInterval(ele.timer);
-				 		cur_working--;
-				 		console.log(cur_working);
-				 		$(ele).closest('tr').find('td:nth-child(7) .progress').removeClass('active');
-				 		$(ele).closest('tr').find('td:nth-child(6)').html('已完成');
-				 		startWork();
-				 	}else{
-					 	cur_width += 2;
-					 	$(ele).closest('tr').find('td:nth-child(7) .progress span').html(cur_width + '%');
-					 	$(ele).closest('tr').find('td:nth-child(7) .progress-bar').css('width',cur_width + '%');
-				 	}
-				 },100);
+					$('#remove_work').modal('show');
+				}
+				function removeWorkOk(){
+					var eles = $('table tbody td input[type="checkbox"]');
+					for(var i = 0; i < eles.length; i++){
+						if($(eles).eq(i).prop('checked')){
+							$(eles).eq(i).closest('tr').remove();
+						}
+					}
+				}
+
+			// 暂停作业
+			function pauseWork(){
+				var eles = $('table tbody td input[type="checkbox"]');
+				for(var i = 0; i < eles.length; i++){
+					if($(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '执行中' || $(eles).eq(i).closest('tr').find('td:nth-child(6)').html() == '等待执行'){
+						$(eles).eq(i).closest('tr').find('td:nth-child(6)').html('暂停');
+						$(eles).eq(i).data('flag','2');
+					}
+				}
+			}
+
+			// 对已完成的作业进行处理
+			function dealDoneWork(ele){
+				var date = new Date();
+				var detailDate = date.getFullYear() + '-' + (date.getMonth()+ 1) + '-' + date.getDate() + ' ' + date.getHours() + ':' + date.getMinutes()  + ':' + date.getSeconds();
+				console.log(new Date());
+				$(ele).find('td:first-child input[type=checkbox]').prop('checked',false);
+				$(ele).find('td:nth-child(5)').html('2017-10-31 19:50:10').css('color','#555');
+				$(ele).find('td:nth-child(6)').html(detailDate);
+				$(ele).find('td:nth-child(7)').html('00:00:05');
+				$(ele).find('td:nth-child(8)').remove();
+				$(ele).find('td:nth-child(8)').html('<a href = "javascript:" class = "fa fa-eye">详情</>');
+				$('#done_work table tbody').append($(ele));
 			}
 		</script>
 		<!-- /JAVASCRIPTS -->
